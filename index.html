@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Model School — Build AI Girls & Earn</title>
+<meta name="description" content="Create hyper-realistic AI girl models for TikTok, fan-platforms & traffic. Step-by-step. First result in 3 weeks."/>
+<meta property="og:title" content="AI Model School — Build AI Girls & Earn"/>
+<meta property="og:description" content="Hyper-realistic AI girl models for TikTok, Fanvue & traffic. $49.99 launch price."/>
+<meta property="og:type" content="website"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230d0d0d'/><text y='.9em' font-size='72' x='12'>🤖</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --black:#0d0d0d;--white:#f8f5f0;--accent:#ff3c3c;--accent2:#ff8c00;
+  --grey:#8a8a8a;--light:#efefeb;--border:#e0ddd8;--card:#f2efe9;
+  --green:#22c55e;--dark2:#111;--dark3:#1a1a1a;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--black);font-family:'Syne',sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* ── LANG SYSTEM ── */
+.t-ua{display:none}
+body.lang-ua .t-en{display:none}
+body.lang-ua .t-ua{display:block}
+.i-ua{display:none}
+body.lang-ua .i-en{display:none}
+body.lang-ua .i-ua{display:inline}
+
+/* ── URGENCY BAR ── */
+.urgency-bar{
+  background:linear-gradient(90deg,var(--accent) 0%,var(--accent2) 100%);
+  color:#fff;text-align:center;padding:10px 16px;
+  font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
+}
+
+/* ── TICKER ── */
+.ticker{background:var(--black);padding:9px 0;overflow:hidden;white-space:nowrap;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#3a3a3a}
+.ticker-inner{display:inline-block;animation:tick 36s linear infinite}
+.tk-dot{margin:0 24px;color:var(--accent)}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:13px 40px;
+  background:rgba(248,245,240,.97);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.08em}
+.nav-logo b{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.lang-pill{display:flex;border:1px solid var(--border);border-radius:100px;overflow:hidden}
+.lang-pill button{background:transparent;border:none;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;padding:5px 12px;cursor:pointer;color:var(--grey);transition:background .2s,color .2s}
+.lang-pill button.active{background:var(--black);color:var(--white)}
+.btn-nav{background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.04em;padding:9px 20px;border-radius:100px;border:none;cursor:pointer;white-space:nowrap;transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-nav:hover{transform:scale(1.04);box-shadow:0 4px 20px rgba(255,60,60,.35)}
+
+/* ── HERO ── */
+.hero{min-height:92vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:72px 64px 60px;gap:48px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-160px;width:640px;height:640px;background:radial-gradient(ellipse,rgba(255,60,60,.08) 0%,transparent 65%);pointer-events:none}
+
+/* FIX: hero font크게 */
+h1.hl{font-family:'Bebas Neue',sans-serif;font-size:clamp(5.5rem,9vw,11rem);line-height:.86;letter-spacing:.01em;margin-bottom:24px;animation:fu .5s .2s both}
+h1.hl .red{color:var(--accent)}
+h1.hl .it{font-family:'Instrument Serif',serif;font-style:italic}
+
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--black);color:#fff;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:22px;animation:fu .5s .1s both}
+.dot-pulse{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+@keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* FIX: desc крупнее */
+.hero-desc{font-size:17px;color:#555;line-height:1.7;max-width:460px;margin-bottom:28px;animation:fu .5s .3s both;font-weight:400}
+
+.hero-price{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:30px;animation:fu .5s .35s both}
+.hp-old{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:var(--grey);position:relative}
+.hp-old::after{content:'';position:absolute;left:-2px;top:50%;right:-2px;height:2px;background:var(--accent);transform:rotate(-8deg)}
+.hp-new{font-family:'Bebas Neue',sans-serif;font-size:3.8rem;color:var(--accent);line-height:1}
+.hp-save{background:var(--green);color:#fff;font-size:12px;font-weight:800;letter-spacing:.08em;padding:5px 12px;border-radius:100px;text-transform:uppercase}
+
+/* FIX: кнопки крупнее */
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px;animation:fu .5s .42s both}
+.btn-main{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:#fff;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;letter-spacing:.05em;padding:17px 34px;border-radius:4px;transition:transform .2s,box-shadow .2s}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.22)}
+.btn-main.red{background:var(--accent);box-shadow:0 4px 22px rgba(255,60,60,.3)}
+.btn-main.red:hover{box-shadow:0 8px 32px rgba(255,60,60,.45)}
+.btn-ghost{display:inline-flex;align-items:center;gap:9px;background:transparent;color:var(--black);font-family:'Syne',sans-serif;font-size:14px;font-weight:700;letter-spacing:.05em;padding:16px 28px;border-radius:4px;border:2px solid var(--black);transition:background .2s,color .2s}
+.btn-ghost:hover{background:var(--black);color:#fff}
+
+.social-proof{display:flex;align-items:center;gap:10px;margin-top:22px;animation:fu .5s .5s both;font-size:12px;color:var(--grey);font-weight:600}
+.sp-avatars{display:flex}
+.sp-av{width:30px;height:30px;border-radius:50%;border:2px solid var(--white);margin-left:-9px;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.sp-av:first-child{margin-left:0}
+.sp-av:nth-child(1){background:linear-gradient(135deg,#f0c27f,#e8956d)}
+.sp-av:nth-child(2){background:linear-gradient(135deg,#a78bfa,#7c3aed)}
+.sp-av:nth-child(3){background:linear-gradient(135deg,#34d399,#059669)}
+.sp-av:nth-child(4){background:linear-gradient(135deg,#fb7185,#e11d48)}
+.sp-stars{color:#f59e0b;font-size:14px;letter-spacing:1px}
+
+/* ── PHONE MOCKUP ── */
+.hero-right{display:flex;justify-content:center;align-items:center;animation:fu .6s .25s both}
+.phone-wrap{position:relative;width:270px;margin:0 80px}
+.phone-frame{width:270px;height:545px;background:#111;border-radius:42px;border:7px solid #1a1a1a;box-shadow:0 0 0 1px #2a2a2a,0 40px 90px rgba(0,0,0,.45),inset 0 0 0 1px #2a2a2a;overflow:hidden;position:relative}
+.phone-frame::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:24px;background:#111;border-radius:0 0 16px 16px;z-index:10}
+.phone-frame video{width:100%;height:100%;object-fit:cover;display:none}
+.phone-frame video.ready{display:block}
+.vid-ph{position:absolute;inset:0;background:linear-gradient(145deg,#181818,#252525);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#3a3a3a;gap:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.vid-ph .pi{width:52px;height:52px;border-radius:50%;border:2px solid #2a2a2a;display:flex;align-items:center;justify-content:center;font-size:20px}
+.sf{position:absolute;background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 16px;box-shadow:0 8px 28px rgba(0,0,0,.12);white-space:nowrap;z-index:5}
+.sf .sn{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--accent);line-height:1}
+.sf .sl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-top:2px}
+.sf1{right:0;top:70px;transform:translateX(calc(100% + 14px));animation:fa 4s ease-in-out infinite}
+.sf2{left:0;bottom:100px;transform:translateX(calc(-100% - 14px));animation:fb 5s ease-in-out infinite}
+@keyframes fa{0%,100%{transform:translateX(calc(100% + 14px)) translateY(0)}50%{transform:translateX(calc(100% + 14px)) translateY(-8px)}}
+@keyframes fb{0%,100%{transform:translateX(calc(-100% - 14px)) translateY(0)}50%{transform:translateX(calc(-100% - 14px)) translateY(8px)}}
+
+/* ── INCOME TRIGGERS ── */
+.income-strip{background:var(--black);display:grid;grid-template-columns:repeat(4,1fr)}
+.is-item{padding:28px 24px;border-left:1px solid #1e1e1e;display:flex;flex-direction:column;gap:5px}
+.is-item:first-child{border-left:none}
+.is-avatar{width:38px;height:38px;border-radius:50%;font-size:13px;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:6px;flex-shrink:0}
+.is-name{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#555}
+.is-income{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--accent);line-height:1}
+/* FIX: period visible on dark bg */
+.is-period{font-size:10px;color:#666;letter-spacing:.06em;text-transform:uppercase}
+.is-platform{font-size:11px;font-weight:600;color:#555;margin-top:4px;display:flex;align-items:center;gap:6px}
+.is-platform::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);display:inline-block}
+
+/* ── TIMER ── */
+.timer{background:var(--black);padding:28px 40px;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;border-top:1px solid #1a1a1a}
+.t-label{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);text-align:center}
+.t-sub{font-size:10px;color:#555;letter-spacing:.08em;margin-top:4px;text-align:center}
+.t-digits{display:flex;align-items:center;gap:8px}
+.t-unit{text-align:center}
+.t-num{font-family:'Bebas Neue',sans-serif;font-size:46px;line-height:1;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:4px 12px;min-width:68px;display:block}
+.t-ul{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#444;margin-top:3px}
+/* FIX: separator visible */
+.t-sep{font-family:'Bebas Neue',sans-serif;font-size:38px;color:#555;margin-bottom:16px}
+.t-cta a{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;letter-spacing:.05em;padding:15px 28px;border-radius:4px;transition:transform .2s,box-shadow .2s}
+.t-cta a:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(255,60,60,.4)}
+
+/* ── STATS ── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat{padding:36px 24px;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,3.8vw,4rem);color:var(--accent);line-height:1;margin-bottom:6px}
+.stat-d{font-size:13px;color:var(--grey);line-height:1.5}
+
+/* ── SECTION ── */
+.sec{padding:80px 64px;max-width:1200px;margin:0 auto}
+.sec-tag{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.sec-tag::before{content:'—'}
+.sec-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,4.8vw,5.5rem);line-height:.92;letter-spacing:.01em;margin-bottom:44px}
+.sec-h em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--accent)}
+
+/* ── BENEFITS ── */
+.bg{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.bi{background:var(--card);padding:32px 28px;display:flex;gap:18px;align-items:flex-start;transition:background .2s,color .2s;cursor:default}
+.bi:hover{background:var(--black);color:#fff}
+.bi:hover .bi-icon{background:var(--accent);color:#fff}
+.bi:hover .bi-d{color:rgba(255,255,255,.6)}
+.bi-icon{width:44px;height:44px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;transition:background .2s}
+.bi-t{font-size:14px;font-weight:800;margin-bottom:6px;letter-spacing:.01em}
+.bi-d{font-size:13px;color:#666;line-height:1.65;transition:color .2s}
+
+/* ── VIDEO GALLERY ── */
+.vg{background:var(--black);padding:80px 64px}
+.vg .sec-h{color:#fff}
+.vg .sec-tag{color:var(--accent)}
+.phones-row{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:44px}
+.pc{width:190px}
+.pm{width:190px;height:358px;background:#1a1a1a;border-radius:28px;border:5px solid #222;box-shadow:0 0 0 1px #2a2a2a,0 20px 44px rgba(0,0,0,.55);overflow:hidden;position:relative}
+.pm::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:62px;height:16px;background:#111;border-radius:0 0 10px 10px;z-index:2}
+.pm video{width:100%;height:100%;object-fit:cover;display:none}
+.pm video.ready{display:block}
+.mini-ph{position:absolute;inset:0;background:linear-gradient(160deg,#1e1e1e,#272727);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#3a3a3a;gap:7px}
+.mini-ph .mi{font-size:26px}
+.mini-ph span{font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.pc-label{margin-top:11px;text-align:center;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#555}
+.pc-label b{color:var(--accent)}
+
+/* ── MODULES ── */
+.mg{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.mc{padding:28px 24px;border:1px solid var(--border);position:relative;overflow:hidden;transition:border-color .25s,transform .2s;cursor:default}
+.mc:hover{border-color:var(--black);transform:translateY(-3px)}
+.mc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.mc:hover::after{transform:scaleX(1)}
+.mc.hot{border-top:2px solid var(--accent)}
+.mc-n{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;color:var(--light);margin-bottom:-4px}
+.mc-i{font-size:24px;margin-bottom:9px}
+.mc-t{font-size:13px;font-weight:800;letter-spacing:.03em;margin-bottom:7px}
+/* FIX: module desc visible */
+.mc-d{font-size:12px;color:#888;line-height:1.6}
+.mc-hot-tag{display:inline-block;background:var(--accent);color:#fff;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-bottom:8px}
+
+/* ── TESTIMONIALS ── */
+.testi-sec{background:var(--black);padding:80px 64px}
+.testi-sec .sec-h{color:#fff}
+.testi-sec .sec-tag{color:var(--accent)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tcard{background:#111;border:1px solid #222;border-radius:14px;padding:26px;transition:border-color .2s,transform .2s;display:flex;flex-direction:column}
+.tcard:hover{border-color:#333;transform:translateY(-2px)}
+.tcard-stars{color:#f59e0b;font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.tcard-income{background:rgba(255,60,60,.1);border:1px solid rgba(255,60,60,.2);border-radius:8px;padding:8px 12px;margin-bottom:14px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:6px}
+.tcard-text{font-family:'Instrument Serif',serif;font-size:.95rem;font-style:italic;color:#bbb;line-height:1.8;margin-bottom:18px;flex:1}
+.tcard-footer{display:flex;align-items:center;gap:12px;border-top:1px solid #1e1e1e;padding-top:14px}
+.tcard-av{width:38px;height:38px;border-radius:50%;font-size:13px;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tcard-author{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#666}
+.tcard-author b{color:var(--accent)}
+/* FIX: role visible on dark */
+.tcard-role{font-size:11px;color:#444;margin-top:3px;letter-spacing:.04em}
+
+/* ── PROOF STRIP ── */
+.proof-strip{background:var(--light);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:36px 64px;display:flex;align-items:center;justify-content:center;gap:56px;flex-wrap:wrap}
+.ps-item{text-align:center}
+.ps-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--black);line-height:1}
+.ps-num span{color:var(--accent)}
+.ps-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-top:5px}
+
+/* ── FAQ ── */
+.faq-sec{padding:80px 64px;max-width:860px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border);padding:20px 0}
+.faq-q{font-size:15px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none}
+.faq-q .faq-icon{width:28px;height:28px;border-radius:50%;background:var(--black);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;transition:transform .3s,background .2s}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--accent)}
+.faq-a{font-size:14px;color:#666;line-height:1.75;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+.faq-item.open .faq-a{max-height:400px;padding-top:12px}
+
+/* ── FREE ── */
+.free-sec{background:var(--light);padding:80px 64px}
+.free-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.free-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,4.8vw,5.5rem);line-height:.88;letter-spacing:.01em;margin-bottom:20px}
+.free-h span{color:var(--accent)}
+.free-p{font-size:15px;color:#555;line-height:1.7;margin-bottom:24px;max-width:420px}
+.chk{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.ci{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:600}
+.ci-ic{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.free-phone{width:230px;height:445px;background:#111;border-radius:38px;border:7px solid #1a1a1a;box-shadow:0 0 0 1px #222,0 28px 60px rgba(0,0,0,.2);overflow:hidden;position:relative;margin:0 auto}
+.free-phone::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:76px;height:20px;background:#111;border-radius:0 0 13px 13px;z-index:2}
+.fp-in{width:100%;height:100%;background:linear-gradient(145deg,#0d0d0d,#181818);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px 18px;gap:12px;color:#fff}
+.fp-icon{font-size:38px}
+.fp-t{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.05em;text-align:center;line-height:1.1}
+.fp-s{font-size:10px;color:#444;text-align:center;letter-spacing:.08em;text-transform:uppercase}
+.fp-btn{background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;padding:11px 22px;border-radius:100px;margin-top:6px}
+
+/* ── PRICING ── */
+.price-sec{padding:80px 64px;max-width:860px;margin:0 auto;text-align:center}
+.price-label{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.2em;color:var(--grey);text-transform:uppercase;margin-bottom:8px}
+.price-was{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:var(--grey);position:relative;display:inline-block;margin-bottom:-4px}
+.price-was::after{content:'';position:absolute;left:-4px;right:-4px;top:52%;height:3px;background:var(--accent);transform:rotate(-3deg)}
+.price-now{font-family:'Bebas Neue',sans-serif;font-size:clamp(6rem,12vw,11rem);line-height:.85;letter-spacing:-.02em;display:block}
+.price-now sup{font-size:.28em;vertical-align:super;color:var(--accent)}
+.price-save{display:inline-block;background:var(--green);color:#fff;font-size:13px;font-weight:800;letter-spacing:.1em;padding:6px 18px;border-radius:100px;text-transform:uppercase;margin:14px 0 10px}
+.price-meta{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:32px}
+.price-feats{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:32px}
+.pf{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;background:var(--card);padding:8px 16px;border-radius:100px;border:1px solid var(--border)}
+.pf .dot{color:var(--accent);font-size:16px;line-height:1}
+/* НОВЫЙ: trust progress bar */
+.trust-bar{margin:28px auto 32px;max-width:460px}
+.trust-bar-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-bottom:10px;display:flex;justify-content:space-between}
+.trust-bar-label b{color:var(--accent)}
+.trust-bar-track{height:6px;background:var(--border);border-radius:100px;overflow:hidden}
+.trust-bar-fill{height:100%;width:78%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:100px;animation:bar-grow 1.5s 1s both}
+@keyframes bar-grow{from{width:0}to{width:78%}}
+.price-guarantee{font-size:12px;color:var(--grey);margin-top:20px;display:flex;align-items:center;justify-content:center;gap:6px}
+.sale-badge{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;animation:badge-pop .4s .8s both}
+@keyframes badge-pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+
+/* ── URGENCY BOTTOM ── */
+.urgency-bottom{background:linear-gradient(90deg,#111 0%,#1a1a1a 100%);padding:40px 64px;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;text-align:center}
+.ub-item{color:#fff}
+.ub-icon{font-size:30px;margin-bottom:8px}
+.ub-t{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.ub-d{font-size:11px;color:#555;letter-spacing:.05em}
+
+/* ── FOOTER ── */
+footer{background:var(--black);color:#fff;padding:44px 64px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px}
+.f-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.08em}
+.f-logo b{color:var(--accent)}
+.f-links{display:flex;gap:24px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#444}
+.f-links a:hover{color:#fff}
+.f-copy{font-size:11px;color:#333;letter-spacing:.05em}
+
+/* ── STICKY ── */
+.sticky{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);z-index:300;background:var(--black);border-radius:100px;padding:12px 8px 12px 22px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 44px rgba(0,0,0,.55);transition:transform .5s cubic-bezier(.34,1.56,.64,1);white-space:nowrap}
+.sticky.show{transform:translateX(-50%) translateY(0)}
+.sticky .st{font-size:12px;font-weight:700;color:#fff;letter-spacing:.04em}
+.sticky .st b{color:var(--accent)}
+.sticky a{background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:.04em;padding:10px 20px;border-radius:100px;transition:transform .2s;display:inline-flex;align-items:center;gap:6px}
+.sticky a:hover{transform:scale(1.04)}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .65s,transform .65s}
+.rv.in{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;padding:48px 24px 40px;text-align:center}
+  .hero-right,.sf1,.sf2{display:none}
+  .hero-desc{max-width:100%}
+  .hero-price{justify-content:center}
+  .hero-btns{justify-content:center}
+  .social-proof{justify-content:center}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-right:none;border-bottom:1px solid var(--border)}
+  .income-strip{grid-template-columns:repeat(2,1fr)}
+  .is-item:nth-child(1),.is-item:nth-child(2){border-bottom:1px solid #1e1e1e}
+  .bg{grid-template-columns:1fr}
+  .mg{grid-template-columns:repeat(2,1fr)!important}
+  .testi-grid{grid-template-columns:1fr}
+  .sec,.vg,.testi-sec,.free-sec,.price-sec,.urgency-bottom,.faq-sec{padding:56px 24px}
+  .timer{flex-direction:column;gap:16px;padding:22px 16px;text-align:center}
+  .free-in{grid-template-columns:1fr}
+  .free-phone{display:none}
+  .proof-strip{gap:28px;padding:28px 24px}
+  nav{padding:11px 18px}
+  footer{flex-direction:column;padding:32px 24px}
+}
+@media(max-width:600px){
+  .mg{grid-template-columns:1fr!important}
+  .income-strip{grid-template-columns:1fr}
+  .is-item{border-left:none!important;border-bottom:1px solid #1e1e1e}
+  .phones-row{gap:10px}
+  .pc{width:150px}
+  .pm{width:150px;height:284px}
+  .sticky .st{display:none}
+  .sticky{padding:10px}
+  .urgency-bar{font-size:11px;padding:9px 12px}
+}
+</style>
+</head>
+<body>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  🔥
+  <span class="i-en">LIMITED LAUNCH OFFER — 50% OFF TODAY ONLY &nbsp;·&nbsp; Price goes up soon</span>
+  <span class="i-ua">АКЦІЯ — ЗНИЖКА 50% ТІЛЬКИ СЬОГОДНІ &nbsp;·&nbsp; Скоро ціна виросте</span>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="ticker-inner">
+    AI MODEL SCHOOL <span class="tk-dot">✦</span> BUILD AI GIRLS <span class="tk-dot">✦</span> EARN FROM DAY ONE <span class="tk-dot">✦</span>
+    TIKTOK · REELS · FANVUE <span class="tk-dot">✦</span> $800/MONTH <span class="tk-dot">✦</span> 50% OFF TODAY <span class="tk-dot">✦</span>
+    FACE SWAP · 18+ CONTENT · CHATGPT <span class="tk-dot">✦</span> NO SKILLS NEEDED <span class="tk-dot">✦</span>
+    STUDENTS EARNING $440–$3100/MO <span class="tk-dot">✦</span> START IN 3 WEEKS <span class="tk-dot">✦</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">AI<b>MODEL</b>SCHOOL</div>
+  <div class="nav-right">
+    <div class="lang-pill">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-ua" onclick="setLang('ua')">UA</button>
+    </div>
+    <a href="https://t.me/TikTok_2026_bot?start=money" target="_blank" class="btn-nav">
+      🔥 <span class="i-en">Buy — $49.99</span>
+         <span class="i-ua">Купити — $49.99</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="dot-pulse"></span>
+      <span class="i-en">50% Off — Today Only</span>
+      <span class="i-ua">Знижка 50% — тільки сьогодні</span>
+    </div>
+
+    <h1 class="hl">
+      <span class="t-en">BUILD<br/><span class="it">AI Girls</span><br/>&amp; <span class="red">EARN</span></span>
+      <span class="t-ua">СТВОРИ<br/><span class="it">AI Модель</span><br/>І <span class="red">ЗАРОБЛЯЙ</span></span>
+    </h1>
+
+    <p class="hero-desc">
+      <span class="i-en">Create hyper-realistic AI girl models for TikTok, Reels, Fanvue and traffic funnels. Step-by-step guide. First results in 3 weeks — no experience needed.</span>
+      <span class="i-ua">Створюй гіперреалістичних AI-дівчат для TikTok, Reels, Fanvue і воронок. Покроково. Перший результат за 3 тижні — досвід не потрібен.</span>
+    </p>
+
+    <div class="hero-price">
+      <div class="hp-old">$97</div>
+      <div class="hp-new">$49.99</div>
+      <div class="hp-save">
+        <span class="i-en">Save $47!</span>
+        <span class="i-ua">Економія $47!</span>
+      </div>
+    </div>
+
+    <div class="hero-btns">
+      <a href="https://t.me/TikTok_2026_bot?start=money" target="_blank" class="btn-main red">
+        🔥 <span class="i-en">Get Full Course — $49.99</span>
+           <span class="i-ua">Отримати курс — $49.99</span>
+      </a>
+      <a href="https://t.me/TikTok_2026_bot?start=default" target="_blank" class="btn-ghost">
+        🎁 <span class="i-en">Free Mini-Guide</span>
+           <span class="i-ua">Безкоштовний гайд</span>
+      </a>
+    </div>
+
+    <div class="social-proof">
+      <div class="sp-avatars">
+        <!-- EN: A J S M  |  UA: О М Д В — via CSS lang system -->
+        <div class="sp-av"><span class="i-en">A</span><span class="i-ua">О</span></div>
+        <div class="sp-av"><span class="i-en">J</span><span class="i-ua">М</span></div>
+        <div class="sp-av"><span class="i-en">S</span><span class="i-ua">Д</span></div>
+        <div class="sp-av"><span class="i-en">M</span><span class="i-ua">В</span></div>
+      </div>
+      <div class="sp-stars">★★★★★</div>
+      <span>
+        <span class="i-en">127+ students already enrolled</span>
+        <span class="i-ua">127+ студентів вже всередині</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="phone-wrap">
+      <div class="sf sf1">
+        <div class="sn">$820</div>
+        <div class="sl i-en">/ month · Week 6</div>
+        <div class="sl i-ua">/ міс · Тиждень 6</div>
+      </div>
+      <div class="sf sf2">
+        <div class="sn">3WK</div>
+        <div class="sl i-en">First result</div>
+        <div class="sl i-ua">Перший результат</div>
+      </div>
+      <div class="phone-frame">
+        <video autoplay muted loop playsinline>
+          <source src="hf_20260116_044249_50dad014-d2be-4274-b8a2-0eb83bd644eb.mp4" type="video/mp4"/>
+        </video>
+        <div class="vid-ph">
+          <div class="pi">▶</div>
+          <span class="i-en">AI Girl Demo</span>
+          <span class="i-ua">AI Демо</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCOME TRIGGERS -->
+<div class="income-strip rv">
+  <div class="is-item">
+    <div class="is-avatar" style="background:linear-gradient(135deg,#f0c27f,#e8956d)">
+      <span class="i-en">A</span><span class="i-ua">О</span>
+    </div>
+    <div class="is-name i-en">Alex T. · 🇺🇸 Texas</div>
+    <div class="is-name i-ua">Олексій Т. · 🇺🇦 Харків</div>
+    <div class="is-income">$820</div>
+    <div class="is-period i-en">per month · 6 weeks after start</div>
+    <div class="is-period i-ua">на місяць · через 6 тижнів</div>
+    <div class="is-platform">Fanvue</div>
+  </div>
+  <div class="is-item">
+    <div class="is-avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">
+      <span class="i-en">J</span><span class="i-ua">М</span>
+    </div>
+    <div class="is-name i-en">James R. · 🇺🇸 Florida</div>
+    <div class="is-name i-ua">Михайло Д. · 🇺🇦 Київ</div>
+    <div class="is-income">$1,200</div>
+    <div class="is-period i-en">per month · 2 personas running</div>
+    <div class="is-period i-ua">на місяць · 2 персонажі</div>
+    <div class="is-platform">TikTok + Fanvue</div>
+  </div>
+  <div class="is-item">
+    <div class="is-avatar" style="background:linear-gradient(135deg,#34d399,#059669)">
+      <span class="i-en">S</span><span class="i-ua">Д</span>
+    </div>
+    <div class="is-name i-en">Sarah K. · 🇺🇸 California</div>
+    <div class="is-name i-ua">Дарина В. · 🇺🇦 Одеса</div>
+    <div class="is-income">$440</div>
+    <div class="is-period i-en">first month · complete beginner</div>
+    <div class="is-period i-ua">перший місяць · новачок</div>
+    <div class="is-platform">Fanvue</div>
+  </div>
+  <div class="is-item">
+    <div class="is-avatar" style="background:linear-gradient(135deg,#fb7185,#e11d48)">
+      <span class="i-en">M</span><span class="i-ua">В</span>
+    </div>
+    <div class="is-name i-en">Mike D. · 🇺🇸 New York</div>
+    <div class="is-name i-ua">Віктор С. · 🇺🇦 Дніпро</div>
+    <div class="is-income">$3,100</div>
+    <div class="is-period i-en">per month · 3 personas</div>
+    <div class="is-period i-ua">на місяць · 3 персонажі</div>
+    <div class="is-platform">Pinterest + Fanvue</div>
+  </div>
+</div>
+
+<!-- TIMER -->
+<div class="timer rv">
+  <div>
+    <div class="t-label">
+      <span class="i-en">⚡ Sale price ends in</span>
+      <span class="i-ua">⚡ Акційна ціна закінчується через</span>
+    </div>
+    <div class="t-sub">
+      <span class="i-en">After timer — price returns to $97</span>
+      <span class="i-ua">Після таймера — ціна повернеться до $97</span>
+    </div>
+  </div>
+  <div class="t-digits">
+    <div class="t-unit">
+      <span class="t-num" id="th">00</span>
+      <div class="t-ul i-en">Hours</div>
+      <div class="t-ul i-ua">Годин</div>
+    </div>
+    <div class="t-sep">:</div>
+    <div class="t-unit">
+      <span class="t-num" id="tm">00</span>
+      <div class="t-ul i-en">Min</div>
+      <div class="t-ul i-ua">Хв</div>
+    </div>
+    <div class="t-sep">:</div>
+    <div class="t-unit">
+      <span class="t-num" id="ts">00</span>
+      <div class="t-ul i-en">Sec</div>
+      <div class="t-ul i-ua">Сек</div>
+    </div>
+  </div>
+  <div class="t-cta">
+    <a href="https://t.me/TikTok_2026_bot?start=money" target="_blank">
+      🔥 <span class="i-en">Lock in $49.99 →</span>
+         <span class="i-ua">Взяти за $49.99 →</span>
+    </a>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats rv">
+  <div class="stat">
+    <div class="stat-n">$800</div>
+    <div class="stat-d i-en">Avg monthly income<br/>from 1 AI persona</div>
+    <div class="stat-d i-ua">Середній дохід/міс<br/>з 1 AI-персонажа</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">3WK</div>
+    <div class="stat-d i-en">To your first<br/>working AI model</div>
+    <div class="stat-d i-ua">До першої робочої<br/>AI-моделі</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">8</div>
+    <div class="stat-d i-en">Packed course<br/>blocks</div>
+    <div class="stat-d i-ua">Насичених блоків<br/>курсу</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">127+</div>
+    <div class="stat-d i-en">Students already<br/>enrolled</div>
+    <div class="stat-d i-ua">Студентів вже<br/>всередині</div>
+  </div>
+</div>
+
+<!-- BENEFITS -->
+<div class="sec rv">
+  <p class="sec-tag i-en">What you get</p>
+  <p class="sec-tag i-ua">Що ти отримаєш</p>
+  <h2 class="sec-h">
+    <span class="t-en">Everything to<br/><em>start earning</em></span>
+    <span class="t-ua">Все що потрібно<br/>щоб <em>заробляти</em></span>
+  </h2>
+  <div class="bg">
+    <div class="bi"><div class="bi-icon">🎭</div><div>
+      <div class="bi-t i-en">Unique AI girl — locked identity</div>
+      <div class="bi-t i-ua">Унікальна AI-дівчина — стабільний образ</div>
+      <p class="bi-d i-en">Character portrait + locked prompt. Same face across 100+ images, forever consistent.</p>
+      <p class="bi-d i-ua">Портрет персонажа + зафіксований промпт. Одне обличчя в 100+ зображеннях.</p>
+    </div></div>
+    <div class="bi"><div class="bi-icon">🔥</div><div>
+      <div class="bi-t i-en">18+ content & Fanvue monetization</div>
+      <div class="bi-t i-ua">18+ контент і монетизація на Fanvue</div>
+      <p class="bi-d i-en">Generate adult content safely. Full Fanvue setup, pricing strategy, subscriber retention.</p>
+      <p class="bi-d i-ua">Безпечна генерація 18+ контенту. Повне налаштування Fanvue і утримання підписників.</p>
+    </div></div>
+    <div class="bi"><div class="bi-icon">📣</div><div>
+      <div class="bi-t i-en">Free & paid traffic — TikTok, Pinterest, ads</div>
+      <div class="bi-t i-ua">Трафік: TikTok, Pinterest, реклама</div>
+      <p class="bi-d i-en">Proven traffic strategies that work right now. No guesswork, just the playbook.</p>
+      <p class="bi-d i-ua">Перевірені стратегії трафіку, що працюють прямо зараз. Без здогадок.</p>
+    </div></div>
+    <div class="bi"><div class="bi-icon">💬</div><div>
+      <div class="bi-t i-en">Chatter scripts & upsell tactics</div>
+      <div class="bi-t i-ua">Скрипти чатера + тактики апсейлу</div>
+      <p class="bi-d i-en">Fan psychology, reply templates, upsell flows. Turn followers into paying subscribers.</p>
+      <p class="bi-d i-ua">Психологія фанатів, шаблони відповідей, апсейли. Конвертуй підписників у платних.</p>
+    </div></div>
+  </div>
+</div>
+
+<!-- VIDEO GALLERY -->
+<div class="vg rv">
+  <div style="max-width:1200px;margin:0 auto">
+    <p class="sec-tag i-en">Student work</p>
+    <p class="sec-tag i-ua">Роботи студентів</p>
+    <h2 class="sec-h" style="color:#fff">
+      <span class="t-en">This is what<br/><em>students create</em></span>
+      <span class="t-ua">Ось що<br/><em>створюють студенти</em></span>
+    </h2>
+    <div class="phones-row">
+      <div class="pc">
+        <div class="pm">
+          <video autoplay muted loop playsinline>
+            <source src="4.mp4" type="video/mp4"/>
+          </video>
+          <div class="mini-ph"><span class="mi">📸</span><span>Style 1</span></div>
+        </div>
+        <div class="pc-label">TikTok · <b>2.1M</b></div>
+      </div>
+      <div class="pc" style="margin-top:44px">
+        <div class="pm">
+          <video autoplay muted loop playsinline>
+            <source src="12.mp4" type="video/mp4"/>
+          </video>
+          <div class="mini-ph"><span class="mi">🎬</span><span>Style 2</span></div>
+        </div>
+        <div class="pc-label">Reels · <b>890K</b></div>
+      </div>
+      <div class="pc">
+        <div class="pm">
+          <video autoplay muted loop playsinline>
+            <source src="18.mp4" type="video/mp4"/>
+          </video>
+          <div class="mini-ph"><span class="mi">✨</span><span>Style 3</span></div>
+        </div>
+        <div class="pc-label">Pinterest · <b>4.5M</b></div>
+      </div>
+      <div class="pc" style="margin-top:44px">
+        <div class="pm">
+          <video autoplay muted loop playsinline>
+            <source src="28.mp4" type="video/mp4"/>
+          </video>
+          <div class="mini-ph"><span class="mi">💫</span><span>Fanvue</span></div>
+        </div>
+        <div class="pc-label">Fanvue · <b style="color:var(--accent)">$800/mo</b></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULES -->
+<div class="sec rv">
+  <p class="sec-tag i-en">Full course program</p>
+  <p class="sec-tag i-ua">Повна програма курсу</p>
+  <h2 class="sec-h">
+    <span class="t-en">8 blocks.<br/><em>Zero fluff.</em></span>
+    <span class="t-ua">8 блоків.<br/><em>Нуль води.</em></span>
+  </h2>
+  <div class="mg">
+    <div class="mc">
+      <div class="mc-n">01</div><div class="mc-i">🎭</div>
+      <div class="mc-t i-en">Character Portrait</div><div class="mc-t i-ua">Портрет персонажа</div>
+      <div class="mc-d i-en">Build a unique AI girl from scratch. Face, style, identity — locked forever.</div>
+      <div class="mc-d i-ua">AI-дівчина з нуля. Обличчя, стиль, образ — зафіксовані назавжди.</div>
+    </div>
+    <div class="mc">
+      <div class="mc-n">02</div><div class="mc-i">🤖</div>
+      <div class="mc-t i-en">ChatGPT & Prompts</div><div class="mc-t i-ua">ChatGPT та промпти</div>
+      <div class="mc-d i-en">Prompts, personas, caption scripts. AI handles the words so you scale faster.</div>
+      <div class="mc-d i-ua">Промпти, персонажі, скрипти. AI пише контент і відповіді замість тебе.</div>
+    </div>
+    <div class="mc">
+      <div class="mc-n">03</div><div class="mc-i">📸</div>
+      <div class="mc-t i-en">Photo & Video Gen</div><div class="mc-t i-ua">Фото + відео генерація</div>
+      <div class="mc-d i-en">Best tools, full workflow. Batch photo packs, Reels, Shorts — done fast.</div>
+      <div class="mc-d i-ua">Інструменти, воркфлоу. Паки фото, Reels, Shorts — швидко і в масштабі.</div>
+    </div>
+    <div class="mc">
+      <div class="mc-n">04</div><div class="mc-i">🔄</div>
+      <div class="mc-t i-en">Face Swap</div><div class="mc-t i-ua">Заміна обличчя</div>
+      <div class="mc-d i-en">Replace faces in photos and video. Keep your model 100% consistent everywhere.</div>
+      <div class="mc-d i-ua">Заміна обличчя на фото і відео. Персонаж однаковий у будь-якому контенті.</div>
+    </div>
+    <div class="mc hot">
+      <div class="mc-hot-tag i-en">🔥 Highest ROI</div>
+      <div class="mc-hot-tag i-ua">🔥 Найбільший дохід</div>
+      <div class="mc-n">05</div><div class="mc-i">🔥</div>
+      <div class="mc-t i-en">18+ Content</div><div class="mc-t i-ua">Генерація 18+</div>
+      <div class="mc-d i-en">Safe, no-ban workflow for adult content. This block alone pays for the whole course.</div>
+      <div class="mc-d i-ua">Безпечна генерація 18+. Один цей блок окупає весь курс.</div>
+    </div>
+    <div class="mc">
+      <div class="mc-n">06</div><div class="mc-i">💰</div>
+      <div class="mc-t">Fanvue</div>
+      <div class="mc-d i-en">Full platform walkthrough — account setup, pricing tiers, subscriber retention, payout.</div>
+      <div class="mc-d i-ua">Повний розбір платформи — налаштування, ціни, утримання підписників, виведення.</div>
+    </div>
+    <div class="mc">
+      <div class="mc-n">07</div><div class="mc-i">📣</div>
+      <div class="mc-t i-en">Ads & Promotion</div><div class="mc-t i-ua">Реклама і просування</div>
+      <div class="mc-d i-en">TikTok, Pinterest, Reddit, paid ads. Real playbook — what works, what to skip.</div>
+      <div class="mc-d i-ua">TikTok, Pinterest, Reddit, реклама. Реальний план — що працює, що ні.</div>
+    </div>
+    <div class="mc">
+      <div class="mc-n">08</div><div class="mc-i">💬</div>
+      <div class="mc-t i-en">Chatter Guide</div><div class="mc-t i-ua">Гайд для чатерів</div>
+      <div class="mc-d i-en">Fan types, upsell scripts, daily conversion tactics. Turn likes into subscriptions.</div>
+      <div class="mc-d i-ua">Типи фанатів, скрипти апсейлу, щоденні тактики конверсії в підписників.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testi-sec rv">
+  <div style="max-width:1200px;margin:0 auto">
+    <p class="sec-tag i-en">Student results</p>
+    <p class="sec-tag i-ua">Результати студентів</p>
+    <h2 class="sec-h" style="color:#fff">
+      <span class="t-en">Real people.<br/><em>Real income.</em></span>
+      <span class="t-ua">Реальні люди.<br/><em>Реальний дохід.</em></span>
+    </h2>
+    <div class="testi-grid">
+
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-income i-en">💰 Reached $820/month by week 6</div>
+        <div class="tcard-income i-ua">💰 $820/місяць на 6-му тижні</div>
+        <p class="tcard-text i-en">"Built my first AI model in 2 days. By week 3 — first $400 from Fanvue. The face swap module alone is worth the price. At $820/month now and still scaling."</p>
+        <p class="tcard-text i-ua">«Створив першу AI-модель за 2 дні. На 3-й тиждень — перші $400 з Fanvue. Один тільки блок по заміні обличчя вартий цих грошей. Зараз $820/міс, масштабуюсь.»</p>
+        <div class="tcard-footer">
+          <div class="tcard-av" style="background:linear-gradient(135deg,#f0c27f,#e8956d)">
+            <span class="i-en">A</span><span class="i-ua">О</span>
+          </div>
+          <div>
+            <div class="tcard-author">
+              <span class="i-en">Alex T.</span><span class="i-ua">Олексій Т.</span> · <b>Traffic</b>
+            </div>
+            <div class="tcard-role i-en">🇺🇸 Texas · Fanvue</div>
+            <div class="tcard-role i-ua">🇺🇦 Харків · Fanvue</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-income i-en">💰 $1,200/month with 2 personas</div>
+        <div class="tcard-income i-ua">💰 $1 200/місяць — 2 персонажі</div>
+        <p class="tcard-text i-en">"Spent months on YouTube trying to piece this together myself. This course gave me a complete working system in one weekend. The 18+ module is where the real money is."</p>
+        <p class="tcard-text i-ua">«Місяцями шукав по YouTube. Курс дав повну робочу систему за перший вихідний. Блок 18+ — це де реальні гроші.»</p>
+        <div class="tcard-footer">
+          <div class="tcard-av" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">
+            <span class="i-en">J</span><span class="i-ua">М</span>
+          </div>
+          <div>
+            <div class="tcard-author">
+              <span class="i-en">James R.</span><span class="i-ua">Михайло Д.</span> · <b>Content</b>
+            </div>
+            <div class="tcard-role i-en">🇺🇸 Florida · TikTok + Fanvue</div>
+            <div class="tcard-role i-ua">🇺🇦 Київ · TikTok + Fanvue</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-income i-en">💰 $440 first month — zero prior experience</div>
+        <div class="tcard-income i-ua">💰 $440 перший місяць — нульовий досвід</div>
+        <p class="tcard-text i-en">"No design skills, no tech background. Followed every step, got banned once (skipped the safety guide — my fault), restarted and now it's my main side income."</p>
+        <p class="tcard-text i-ua">«Без дизайну і технічного досвіду. Слідувала крокам, отримала бан (сама пропустила гайд безпеки), перезапустилась і тепер це основний дохід.»</p>
+        <div class="tcard-footer">
+          <div class="tcard-av" style="background:linear-gradient(135deg,#34d399,#059669)">
+            <span class="i-en">S</span><span class="i-ua">Д</span>
+          </div>
+          <div>
+            <div class="tcard-author">
+              <span class="i-en">Sarah K.</span><span class="i-ua">Дарина В.</span> · <b>Fanvue</b>
+            </div>
+            <div class="tcard-role i-en">🇺🇸 California · Beginner</div>
+            <div class="tcard-role i-ua">🇺🇦 Одеса · Початківець</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip rv">
+  <div class="ps-item">
+    <div class="ps-num">127<span>+</span></div>
+    <div class="ps-label i-en">students enrolled</div>
+    <div class="ps-label i-ua">студентів у курсі</div>
+  </div>
+  <div class="ps-item">
+    <div class="ps-num"><span>$</span>800</div>
+    <div class="ps-label i-en">avg monthly income</div>
+    <div class="ps-label i-ua">середній дохід/міс</div>
+  </div>
+  <div class="ps-item">
+    <div class="ps-num">3<span>WK</span></div>
+    <div class="ps-label i-en">to first result</div>
+    <div class="ps-label i-ua">до першого результату</div>
+  </div>
+  <div class="ps-item">
+    <div class="ps-num">4.9<span>★</span></div>
+    <div class="ps-label i-en">average rating</div>
+    <div class="ps-label i-ua">середній рейтинг</div>
+  </div>
+</div>
+
+<!-- FAQ — новый блок -->
+<div class="faq-sec rv">
+  <p class="sec-tag i-en">FAQ</p>
+  <p class="sec-tag i-ua">Питання</p>
+  <h2 class="sec-h" style="margin-bottom:28px">
+    <span class="t-en">Common<br/><em>questions</em></span>
+    <span class="t-ua">Часті<br/><em>питання</em></span>
+  </h2>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="i-en">Do I need any design or tech skills?</span>
+      <span class="i-ua">Чи потрібні навички дизайну або технологій?</span>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-a i-en">Zero skills needed. The course is built for complete beginners. If you can follow a step-by-step guide and use a browser, you have everything you need.</div>
+    <div class="faq-a i-ua">Нічого не потрібно. Курс побудований для повних початківців. Якщо ти вмієш слідувати інструкції і користуватись браузером — цього достатньо.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="i-en">Is this legal? Can accounts get banned?</span>
+      <span class="i-ua">Чи це легально? Чи можна отримати бан?</span>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-a i-en">Creating AI models and monetizing them is legal. We include a detailed platform safety guide specifically to avoid bans. Following the guide = no problems.</div>
+    <div class="faq-a i-ua">Створення AI-моделей та їх монетизація — легально. Ми включили детальний гайд по безпеці платформ. Дотримуйся — і проблем не буде.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="i-en">How fast can I make my first money?</span>
+      <span class="i-ua">Коли можна отримати перші гроші?</span>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-a i-en">Most students see their first earnings in weeks 3–5. Consistency matters more than speed — those who post regularly and follow the traffic module start earning fastest.</div>
+    <div class="faq-a i-ua">Більшість студентів отримують перші гроші на 3–5 тижні. Регулярність важливіша за швидкість — ті, хто публікує систематично, заробляють найшвидше.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="i-en">What tools do I need? Are they expensive?</span>
+      <span class="i-ua">Які інструменти потрібні? Вони платні?</span>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-a i-en">The course covers both free and paid tools. You can start with free tools and upgrade once you're earning. We list every tool with cost so there are no surprises.</div>
+    <div class="faq-a i-ua">Курс покриває як безкоштовні, так і платні інструменти. Починай безкоштовно — переходь на платні коли вже заробляєш. Всі витрати розписані заздалегідь.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="i-en">Is there support if I get stuck?</span>
+      <span class="i-ua">Є підтримка якщо застряг?</span>
+      <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-a i-en">Yes — reach our support team directly in Telegram: <a href="https://t.me/luxe_ai_support" style="color:var(--accent);font-weight:700">@luxe_ai_support</a>. We respond fast.</div>
+    <div class="faq-a i-ua">Так — пиши в підтримку в Telegram: <a href="https://t.me/luxe_ai_support" style="color:var(--accent);font-weight:700">@luxe_ai_support</a>. Відповідаємо швидко.</div>
+  </div>
+</div>
+
+<!-- FREE GUIDE -->
+<div class="free-sec rv">
+  <div class="free-in">
+    <div>
+      <h2 class="free-h">
+        <span class="t-en">Try it<br/><span>FREE</span><br/>First</span>
+        <span class="t-ua">Спробуй<br/><span>БЕЗКОШТОВНО</span><br/>Спочатку</span>
+      </h2>
+      <p class="free-p">
+        <span class="i-en">Before you buy — grab the free mini-guide and create your first AI girl in 30–60 minutes. See the exact tools and process. Then decide.</span>
+        <span class="i-ua">Перш ніж купувати — забери безкоштовний міні-гайд і створи першу AI-дівчину за 30–60 хвилин. Побач інструменти і процес. Потім вирішуй.</span>
+      </p>
+      <div class="chk">
+        <div class="ci"><span class="ci-ic">✓</span>
+          <span class="i-en">Which free tools actually work</span>
+          <span class="i-ua">Які безкоштовні інструменти дійсно працюють</span>
+        </div>
+        <div class="ci"><span class="ci-ic">✓</span>
+          <span class="i-en">The prompt formula that gets results</span>
+          <span class="i-ua">Формула промпту, що дає результат</span>
+        </div>
+        <div class="ci"><span class="ci-ic">✓</span>
+          <span class="i-en">Beginner mistake #1 — how to avoid it</span>
+          <span class="i-ua">Помилка №1 новачка — як уникнути</span>
+        </div>
+      </div>
+      <a href="https://t.me/TikTok_2026_bot?start=default" target="_blank" class="btn-main">
+        🎁 <span class="i-en">Get Free Mini-Guide in Telegram</span>
+           <span class="i-ua">Отримати міні-гайд у Telegram</span>
+      </a>
+    </div>
+    <div style="display:flex;justify-content:center">
+      <div class="free-phone">
+        <div class="fp-in">
+          <span class="fp-icon">📘</span>
+          <div class="fp-t i-en">FREE<br/>MINI-GUIDE</div>
+          <div class="fp-t i-ua">БЕЗКОШТОВНИЙ<br/>МІНІ-ГАЙД</div>
+          <div class="fp-s i-en">Telegram · 30–60 min</div>
+          <div class="fp-s i-ua">Telegram · 30–60 хв</div>
+          <div class="fp-btn">→</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="price-sec rv">
+  <div class="sale-badge"><span>🔥</span>
+    <span class="i-en">50% OFF — Launch Special</span>
+    <span class="i-ua">ЗНИЖКА 50% — Запуск</span>
+  </div>
+  <p class="price-label" style="margin-top:18px">
+    <span class="i-en">Was</span><span class="i-ua">Було</span>
+  </p>
+  <div class="price-was">$97</div>
+  <span class="price-now"><sup>$</sup>49.99</span>
+  <div class="price-save">
+    <span class="i-en">You save $47 today</span>
+    <span class="i-ua">Ви економите $47 сьогодні</span>
+  </div>
+  <p class="price-meta">
+    <span class="i-en">Full course · Lifetime Notion access · EN + UA</span>
+    <span class="i-ua">Повний курс · Notion назавжди · EN + UA</span>
+  </p>
+
+  <!-- Trust bar — spots filling up -->
+  <div class="trust-bar">
+    <div class="trust-bar-label">
+      <span class="i-en">Spots at launch price</span>
+      <span class="i-ua">Місць за акційною ціною</span>
+      <b class="i-en">78% taken</b>
+      <b class="i-ua">78% зайнято</b>
+    </div>
+    <div class="trust-bar-track"><div class="trust-bar-fill"></div></div>
+  </div>
+
+  <div class="price-feats">
+    <span class="pf"><span class="dot">✦</span><span class="i-en">8 Blocks</span><span class="i-ua">8 Блоків</span></span>
+    <span class="pf"><span class="dot">✦</span><span class="i-en">Face Swap</span><span class="i-ua">Face Swap</span></span>
+    <span class="pf"><span class="dot">✦</span><span class="i-en">18+ Module</span><span class="i-ua">Блок 18+</span></span>
+    <span class="pf"><span class="dot">✦</span><span class="i-en">Chatter Guide</span><span class="i-ua">Гайд чатера</span></span>
+    <span class="pf"><span class="dot">✦</span><span class="i-en">Free Updates</span><span class="i-ua">Оновлення</span></span>
+    <span class="pf"><span class="dot">✦</span><span class="i-en">Lifetime Access</span><span class="i-ua">Доступ назавжди</span></span>
+  </div>
+
+  <a href="https://t.me/TikTok_2026_bot?start=money" target="_blank" class="btn-main red" style="font-size:16px;padding:20px 52px;display:inline-flex;margin:0 auto">
+    🔥 <span class="i-en">Buy Now — $49.99</span>
+       <span class="i-ua">Купити зараз — $49.99</span>
+  </a>
+  <p class="price-guarantee">
+    🔒 <span class="i-en">Secure payment · Instant Notion access after purchase</span>
+       <span class="i-ua">Безпечна оплата · Миттєвий доступ до Notion після покупки</span>
+  </p>
+</div>
+
+<!-- URGENCY BOTTOM -->
+<div class="urgency-bottom rv">
+  <div class="ub-item">
+    <div class="ub-icon">⏱</div>
+    <div class="ub-t i-en">Price rises soon</div><div class="ub-t i-ua">Ціна виросте</div>
+    <div class="ub-d i-en">$49.99 → $97 after launch window</div><div class="ub-d i-ua">$49.99 → $97 після запуску</div>
+  </div>
+  <div class="ub-item">
+    <div class="ub-icon">📈</div>
+    <div class="ub-t i-en">Niche filling fast</div><div class="ub-t i-ua">Ніша заповнюється</div>
+    <div class="ub-d i-en">Early movers lock in their audience</div><div class="ub-d i-ua">Перші займають позиції</div>
+  </div>
+  <div class="ub-item">
+    <div class="ub-icon">🔓</div>
+    <div class="ub-t i-en">Instant access</div><div class="ub-t i-ua">Миттєвий доступ</div>
+    <div class="ub-d i-en">Notion link delivered right after payment</div><div class="ub-d i-ua">Посилання одразу після оплати</div>
+  </div>
+  <div class="ub-item">
+    <div class="ub-icon">🌍</div>
+    <div class="ub-t">EN · UA</div>
+    <div class="ub-d i-en">Course available in 2 languages</div><div class="ub-d i-ua">Курс двома мовами</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">AI<b>MODEL</b>SCHOOL</div>
+  <div class="f-links">
+    <a href="https://t.me/luxe_ai_support" target="_blank">Support</a>
+    <a href="https://t.me/TikTok_2026_bot?start=default" target="_blank">
+      <span class="i-en">Free Guide</span><span class="i-ua">Безкоштовно</span>
+    </a>
+  </div>
+  <div class="f-copy">© 2026 AI Model School</div>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky" id="sticky">
+  <span class="st">
+    🔥 <span class="i-en">50% off ends soon —</span>
+       <span class="i-ua">Знижка 50% закінчується —</span>
+    <b> $49.99</b>
+  </span>
+  <a href="https://t.me/TikTok_2026_bot?start=money" target="_blank">
+    <span class="i-en">Buy →</span><span class="i-ua">Купити →</span>
+  </a>
+</div>
+
+<script>
+/* ── VIDEO ── */
+document.querySelectorAll('video').forEach(function(vid){
+  var ph = vid.parentElement.querySelector('.vid-ph, .mini-ph');
+  function show(){ vid.classList.add('ready'); if(ph) ph.style.display='none'; }
+  if(vid.readyState >= 3){ show(); return; }
+  vid.addEventListener('canplay', show);
+  vid.addEventListener('error', function(){ vid.style.display='none'; });
+});
+
+/* ── LANG ── */
+function setLang(l){
+  document.body.className = document.body.className.replace(/lang-\w+/g,'').trim();
+  if(l !== 'en') document.body.classList.add('lang-'+l);
+  ['en','ua'].forEach(function(x){
+    var b=document.getElementById('btn-'+x);
+    if(b) b.classList.toggle('active', x===l);
+  });
+  try{ localStorage.setItem('ams_lang',l); }catch(e){}
+}
+(function(){
+  var s; try{ s=localStorage.getItem('ams_lang'); }catch(e){}
+  if(s){ setLang(s); return; }
+  var bl=(navigator.language||'').toLowerCase();
+  if(bl.startsWith('uk')){ setLang('ua'); return; }
+  try{
+    var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';
+    if(['Kyiv','Kiev','Uzhhorod','Zaporizhzhia'].some(function(z){return tz.includes(z);})){
+      setLang('ua');
+    }
+  }catch(e){}
+})();
+
+/* ── STICKY ── */
+window.addEventListener('scroll', function(){
+  var s=document.getElementById('sticky');
+  if(s) s.classList.toggle('show', scrollY > innerHeight*.5);
+});
+
+/* ── TIMER 48h ── */
+(function(){
+  var KEY='ams_end', DUR=48*3600000, end=0;
+  try{ end=+localStorage.getItem(KEY)||0; }catch(e){}
+  if(!end||end<Date.now()){ end=Date.now()+DUR; try{localStorage.setItem(KEY,end);}catch(e){} }
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function tick(){
+    var d=Math.max(0,end-Date.now());
+    if(!d){ end=Date.now()+DUR; try{localStorage.setItem(KEY,end);}catch(e){} d=DUR; }
+    document.getElementById('th').textContent=pad(Math.floor(d/3600000));
+    document.getElementById('tm').textContent=pad(Math.floor(d%3600000/60000));
+    document.getElementById('ts').textContent=pad(Math.floor(d%60000/1000));
+  }
+  tick(); setInterval(tick,1000);
+})();
+
+/* ── REVEAL ── */
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e,i){
+    if(e.isIntersecting){
+      setTimeout(function(){ e.target.classList.add('in'); },i*70);
+      ro.unobserve(e.target);
+    }
+  });
+},{threshold:0.05});
+document.querySelectorAll('.rv').forEach(function(el){ ro.observe(el); });
+
+/* ── TICKER duplicate ── */
+var ti=document.getElementById('ticker-inner');
+if(ti) ti.innerHTML+=ti.innerHTML;
+
+/* ── FAQ ── */
+function toggleFaq(btn){
+  var item=btn.parentElement;
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(x){ x.classList.remove('open'); });
+  if(!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
