@@ -87,8 +87,7 @@ nav{
 .btn-nav:hover{transform:scale(1.04);box-shadow:0 4px 20px rgba(255,60,60,.35)}
 
 /* ── HERO ── */
-.hero{min-height:92vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:72px 64px 60px;gap:48px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-200px;right:-160px;width:640px;height:640px;background:radial-gradient(ellipse,rgba(255,60,60,.08) 0%,transparent 65%);pointer-events:none}
+.hero{min-height:92vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:72px 64px 60px;gap:48px;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:-200px;right:-160px;width:640px;height:640px;background:radial-gradient(ellipse,rgba(255,60,60,.08) 0%,transparent 65%);pointer-events:none}
 
 /* FIX: hero font크게 */
 h1.hl{font-family:'Bebas Neue',sans-serif;font-size:clamp(5.5rem,9vw,11rem);line-height:.86;letter-spacing:.01em;margin-bottom:24px;animation:fu .5s .2s both}
@@ -130,8 +129,8 @@ h1.hl .it{font-family:'Instrument Serif',serif;font-style:italic}
 
 /* ── PHONE MOCKUP ── */
 .hero-right{display:flex;justify-content:center;align-items:center;animation:fu .6s .25s both}
-.hero-mobile-img{display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.phone-wrap{position:relative;width:338px;margin:0 60px}
+.hero-mobile-img{display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:0}
+.phone-wrap{position:relative;width:338px;margin:0 auto}
 .phone-frame{width:338px;height:681px;background:#111;border-radius:42px;border:7px solid #1a1a1a;box-shadow:0 0 0 1px #2a2a2a,0 40px 90px rgba(0,0,0,.45),inset 0 0 0 1px #2a2a2a;overflow:hidden;position:relative}
 .phone-frame::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:24px;background:#111;border-radius:0 0 16px 16px;z-index:10}
 .phone-frame video{width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .4s}
@@ -328,82 +327,143 @@ footer{background:var(--black);color:#fff;padding:44px 64px;display:flex;align-i
 .rv.in{opacity:1;transform:none}
 
 /* ── RESPONSIVE ── */
+
+/* Global mobile overflow fix */
+html,body{max-width:100%;overflow-x:hidden}
+
 @media(max-width:960px){
-  .hero{grid-template-columns:1fr;padding:48px 24px 40px;text-align:center}
-  .hero-right{display:flex;justify-content:center;margin-top:24px}
-  .phone-wrap{width:260px;max-width:280px;margin:0 auto}
-  .phone-frame{width:260px;height:510px;border-radius:36px}
-  /* На мобайлі показуємо зображення як fallback якщо відео не грає */
-  .hero-mobile-img{display:block}
+  /* Hero */
+  .hero{grid-template-columns:1fr;padding:40px 20px 36px;text-align:center;gap:32px;min-height:auto;overflow:visible}
+  .hero-left{display:flex;flex-direction:column;align-items:center;width:100%}
+  .hero-desc{max-width:100%;text-align:center}
+  .hero-price{justify-content:center;flex-wrap:wrap}
+  .hero-btns{justify-content:center;flex-wrap:wrap}
+  .social-proof{justify-content:center;flex-wrap:wrap}
+
+  /* Phone mockup */
+  .hero-right{display:flex;justify-content:center;margin-top:0}
+  .phone-wrap{position:relative;width:240px;margin:0 auto}
+  .phone-frame{width:240px;height:470px;border-radius:36px}
   .sf1,.sf2{display:none}
-  .hero-desc{max-width:100%}
-  .hero-price{justify-content:center}
-  .hero-btns{justify-content:center}
-  .social-proof{justify-content:center}
+  .hero-mobile-img{display:block}
+
+  /* Sections uniform padding */
+  .sec,.vg,.testi-sec,.free-sec,.price-sec,.urgency-bottom,.faq-sec,.proof-shots{padding:52px 20px}
+
+  /* Grid layouts */
   .stats{grid-template-columns:repeat(2,1fr)}
   .stat{border-right:none;border-bottom:1px solid var(--border)}
+  .stat:nth-child(2n){border-right:none}
   .income-strip{grid-template-columns:repeat(2,1fr)}
-  .is-item:nth-child(1),.is-item:nth-child(2){border-bottom:1px solid #1e1e1e}
+  .is-item{border-left:none;border-bottom:1px solid #1e1e1e}
   .bg{grid-template-columns:1fr}
   .mg{grid-template-columns:repeat(2,1fr)!important}
   .testi-grid{grid-template-columns:1fr}
-  .sec,.vg,.testi-sec,.free-sec,.price-sec,.urgency-bottom,.faq-sec{padding:56px 24px}
-  .timer{flex-direction:column;gap:16px;padding:22px 16px;text-align:center}
   .free-in{grid-template-columns:1fr}
   .free-phone{display:none}
-  .proof-strip{gap:28px;padding:28px 24px}
+  .proof-grid{grid-template-columns:1fr 1fr}
+
+  /* Timer */
+  .timer{flex-direction:column;gap:16px;padding:28px 20px;text-align:center}
+
+  /* Proof strip */
+  .proof-strip{gap:28px;padding:28px 20px;flex-wrap:wrap}
+
+  /* Nav */
   nav{padding:11px 18px}
-  footer{flex-direction:column;padding:32px 24px;text-align:center}
+
+  /* Footer */
+  footer{flex-direction:column;padding:32px 20px;text-align:center}
+  .f-links{flex-wrap:wrap;justify-content:center}
+
+  /* Phones row in video gallery */
+  .phones-row{gap:14px}
+  .pc{width:160px}
+  .pm{width:160px;height:302px}
 }
+
 @media(max-width:600px){
+  /* Hero font scaling */
+  h1.hl{font-size:clamp(3.6rem,12vw,5.5rem)}
+
+  /* Single column everything */
   .mg{grid-template-columns:1fr!important}
-  .income-strip{grid-template-columns:1fr}
-  .is-item{border-left:none!important;border-bottom:1px solid #1e1e1e}
-  .phones-row{gap:10px}
-  .pc{width:150px}
-  .pm{width:150px;height:284px}
-  .sticky .st{display:none}
-  .sticky{padding:10px}
-  .urgency-bar{font-size:11px;padding:9px 12px}
-}
-/* ── MOBILE FIXES (TZ) ── */
-@media(max-width:480px){
-  /* Fix 1: Hide nav Buy button */
+  .income-strip{grid-template-columns:1fr!important}
+  .is-item{border-left:none!important;border-bottom:1px solid #1e1e1e;padding:18px 16px}
+  .proof-grid{grid-template-columns:1fr!important}
+  .stats{grid-template-columns:repeat(2,1fr)}
+
+  /* Buttons full width */
+  .btn-main,.btn-ghost{min-height:52px;width:100%;justify-content:center;font-size:14px;padding:15px 20px}
+  .hero-btns{flex-direction:column;width:100%;gap:10px}
+
+  /* Nav */
   .btn-nav{display:none}
-  /* Fix 2: Buttons min-height + full width */
-  .btn-main,.btn-ghost{min-height:52px;width:100%;justify-content:center;font-size:15px}
-  .hero-btns{flex-direction:column;width:100%}
-  /* Fix 3: Sticky bar full-width button */
-  .sticky{left:12px;right:12px;transform:none;border-radius:12px;bottom:12px;padding:10px 16px;white-space:normal}
-  .sticky.show{transform:none}
-  .sticky a{width:100%;justify-content:center;min-height:52px;border-radius:8px}
-  /* Fix 4: Hero phone frame on small screens */
-  .phone-wrap{width:240px;max-width:260px}
-  .phone-frame{width:240px;height:472px;border-radius:32px}
-  /* Fix 5: phones-row horizontal scroll */
-  .phones-row{overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:12px}
-  .pc{flex-shrink:0;scroll-snap-align:start}
-  /* Fix 6: Hero font smaller */
-  h1.hl{font-size:clamp(3.8rem,11vw,5rem)}
-  /* Fix 7: income-strip 1 col */
-  .income-strip{grid-template-columns:1fr}
-  .is-item{display:flex;flex-direction:row;align-items:center;gap:14px;padding:16px}
-  .is-avatar{flex-shrink:0;margin-bottom:0}
-  .is-name,.is-income,.is-period,.is-platform{font-size:inherit}
-  /* Fix 8: Timer compact */
-  .t-num{font-size:36px;min-width:54px;padding:4px 10px}
-  /* Fix 9: proof-grid remove max-height */
-  .proof-card img{max-height:none;max-width:320px;margin:0 auto}
-  /* Fix 10: prevent horizontal overflow */
-  .hero{padding:36px 16px 32px;overflow-x:hidden}
-  .sec,.vg,.testi-sec,.free-sec,.price-sec,.urgency-bottom,.faq-sec,.proof-shots{padding:40px 16px}
   nav{padding:10px 14px}
   .nav-logo{font-size:18px}
-  /* Fix 11: urgency bar wraps nicely */
-  .urgency-bar{font-size:11px;padding:9px 12px;gap:4px}
-  /* Fix 12: price section */
+
+  /* Phone mockup smaller */
+  .phone-wrap{width:210px}
+  .phone-frame{width:210px;height:412px;border-radius:30px}
+
+  /* phones-row horizontal scroll */
+  .phones-row{overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 16px 14px;gap:10px}
+  .pc{flex-shrink:0;scroll-snap-align:start;width:140px}
+  .pm{width:140px;height:264px;border-radius:22px}
+
+  /* Timer */
+  .t-num{font-size:34px;min-width:50px;padding:4px 8px}
+  .t-sep{font-size:30px}
+
+  /* Urgency bar */
+  .urgency-bar{font-size:11px;padding:8px 12px;gap:4px}
+
+  /* Sticky */
+  .sticky .st{display:none}
+  .sticky{left:12px;right:12px;transform:none;border-radius:12px;bottom:12px;padding:10px 14px;white-space:normal}
+  .sticky.show{transform:none}
+  .sticky a{flex:1;justify-content:center;min-height:48px;border-radius:8px;font-size:13px}
+
+  /* Sections padding */
+  .sec,.vg,.testi-sec,.free-sec,.price-sec,.urgency-bottom,.faq-sec,.proof-shots{padding:40px 16px}
+  .timer{padding:22px 14px}
+  footer{padding:28px 16px}
+  .proof-strip{padding:24px 16px;gap:20px}
+
+  /* Income strip row layout - avatar left, text right */
+  .is-item{display:grid;grid-template-columns:44px 1fr;grid-template-rows:auto;align-items:center;gap:0 14px;padding:16px}
+  .is-avatar{grid-row:1/4;align-self:center;margin-bottom:0;width:44px;height:44px}
+  .is-name{grid-column:2}
+  .is-income{grid-column:2;font-size:1.8rem!important}
+  .is-period{grid-column:2}
+  .is-platform{grid-column:2}
+
+  /* Price features */
   .price-feats{flex-direction:column;align-items:stretch}
   .pf{justify-content:flex-start}
+
+  /* Hero */
+  .hero{padding:32px 16px 28px}
+  .hero-eyebrow{font-size:10px;padding:5px 12px}
+  .hero-price{gap:10px}
+  .hp-new{font-size:3rem}
+  .hp-old{font-size:2rem}
+
+  /* Sec headings */
+  .sec-h{font-size:clamp(2.2rem,8vw,3.5rem);margin-bottom:28px}
+  .free-h{font-size:clamp(2.4rem,9vw,4rem)}
+  .price-now{font-size:clamp(5rem,16vw,8rem)}
+
+  /* urgency bottom */
+  .urgency-bottom{padding:28px 16px;gap:20px}
+
+  /* tcard text size */
+  .tcard{padding:18px}
+  .tcard-text{font-size:.9rem}
+
+  /* Module cards */
+  .mc{padding:20px 18px}
+  .mc-n{font-size:42px}
 }
 
 /* ── PROOF SCREENSHOTS ── */
@@ -417,13 +477,6 @@ footer{background:var(--black);color:#fff;padding:44px 64px;display:flex;align-i
 .proof-card img{width:100%;height:auto;max-height:380px;object-fit:contain;display:block;border-radius:8px}
 .proof-card-label{padding:12px 16px 4px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
 .proof-card-sub{padding:4px 16px 16px;font-size:12px;color:#555}
-@media(max-width:960px){
-  .proof-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:600px){
-  .proof-grid{grid-template-columns:1fr}
-  .proof-shots{padding:48px 24px}
-}
 </style>
 </head>
 <body>
