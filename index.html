@@ -18,6 +18,14 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230d0d0d'/><text y='.9em' font-size='72' x='12'>🤖</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+<!-- Google Analytics 4 — замінити G-XXXXXXXXXX на реальний Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 <style>
 :root{
   --black:#0d0d0d;--white:#f8f5f0;--accent:#ff3c3c;--accent2:#ff8c00;
@@ -103,11 +111,11 @@ h1.hl .it{font-family:'Instrument Serif',serif;font-style:italic}
 
 /* FIX: кнопки крупнее */
 .hero-btns{display:flex;flex-wrap:wrap;gap:14px;animation:fu .5s .42s both}
-.btn-main{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:#fff;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;letter-spacing:.05em;padding:17px 34px;border-radius:4px;transition:transform .2s,box-shadow .2s}
+.btn-main{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:#fff;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;letter-spacing:.05em;padding:17px 34px;border-radius:4px;transition:transform .2s,box-shadow .2s;min-height:48px}
 .btn-main:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.22)}
 .btn-main.red{background:var(--accent);box-shadow:0 4px 22px rgba(255,60,60,.3)}
 .btn-main.red:hover{box-shadow:0 8px 32px rgba(255,60,60,.45)}
-.btn-ghost{display:inline-flex;align-items:center;gap:9px;background:transparent;color:var(--black);font-family:'Syne',sans-serif;font-size:14px;font-weight:700;letter-spacing:.05em;padding:16px 28px;border-radius:4px;border:2px solid var(--black);transition:background .2s,color .2s}
+.btn-ghost{display:inline-flex;align-items:center;gap:9px;background:transparent;color:var(--black);font-family:'Syne',sans-serif;font-size:14px;font-weight:700;letter-spacing:.05em;padding:16px 28px;border-radius:4px;border:2px solid var(--black);transition:background .2s,color .2s;min-height:48px}
 .btn-ghost:hover{background:var(--black);color:#fff}
 
 .social-proof{display:flex;align-items:center;gap:10px;margin-top:22px;animation:fu .5s .5s both;font-size:12px;color:var(--grey);font-weight:600}
@@ -122,6 +130,7 @@ h1.hl .it{font-family:'Instrument Serif',serif;font-style:italic}
 
 /* ── PHONE MOCKUP ── */
 .hero-right{display:flex;justify-content:center;align-items:center;animation:fu .6s .25s both}
+.hero-mobile-img{display:none}
 .phone-wrap{position:relative;width:338px;margin:0 100px}
 .phone-frame{width:338px;height:681px;background:#111;border-radius:42px;border:7px solid #1a1a1a;box-shadow:0 0 0 1px #2a2a2a,0 40px 90px rgba(0,0,0,.45),inset 0 0 0 1px #2a2a2a;overflow:hidden;position:relative}
 .phone-frame::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:24px;background:#111;border-radius:0 0 16px 16px;z-index:10}
@@ -241,20 +250,6 @@ h1.hl .it{font-family:'Instrument Serif',serif;font-style:italic}
 .ps-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-top:5px}
 
 
-/* ── TRUST BAR dynamic ── */
-(function(){
-  var KEY='ams_deadline_v2';
-  var end=0; try{ end=+localStorage.getItem(KEY)||0; }catch(e){}
-  var DUR=72*3600000;
-  var elapsed = end ? Math.max(0, DUR-(end-Date.now())) : 0;
-  var pct = Math.min(95, Math.round(62 + (elapsed/DUR)*30));
-  var fill=document.getElementById('trust-fill');
-  var enEl=document.getElementById('trust-pct-en');
-  var uaEl=document.getElementById('trust-pct-ua');
-  if(fill){ fill.style.width=pct+'%'; fill.style.animation='none'; }
-  if(enEl) enEl.textContent=pct+'% taken';
-  if(uaEl) uaEl.textContent=pct+'% зайнято';
-})();
 
 /* ── FAQ ── */
 .faq-sec{padding:80px 64px;max-width:860px;margin:0 auto}
@@ -335,7 +330,11 @@ footer{background:var(--black);color:#fff;padding:44px 64px;display:flex;align-i
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
   .hero{grid-template-columns:1fr;padding:48px 24px 40px;text-align:center}
-  .hero-right,.sf1,.sf2{display:none}
+  .hero-right{display:flex;justify-content:center;margin-top:24px}
+  .phone-wrap{width:100%;max-width:360px;margin:0 auto}
+  .phone-frame video{display:none!important}
+  .hero-mobile-img{display:block;width:100%;border-radius:16px;object-fit:cover}
+  .sf1,.sf2{display:none}
   .hero-desc{max-width:100%}
   .hero-price{justify-content:center}
   .hero-btns{justify-content:center}
@@ -353,7 +352,7 @@ footer{background:var(--black);color:#fff;padding:44px 64px;display:flex;align-i
   .free-phone{display:none}
   .proof-strip{gap:28px;padding:28px 24px}
   nav{padding:11px 18px}
-  footer{flex-direction:column;padding:32px 24px}
+  footer{flex-direction:column;padding:32px 24px;text-align:center}
 }
 @media(max-width:600px){
   .mg{grid-template-columns:1fr!important}
@@ -365,6 +364,32 @@ footer{background:var(--black);color:#fff;padding:44px 64px;display:flex;align-i
   .sticky .st{display:none}
   .sticky{padding:10px}
   .urgency-bar{font-size:11px;padding:9px 12px}
+}
+/* ── MOBILE FIXES (TZ) ── */
+@media(max-width:480px){
+  /* Fix 1: Hide nav Buy button */
+  .btn-nav{display:none}
+  /* Fix 2: Buttons min-height + full width */
+  .btn-main,.btn-ghost{min-height:48px;width:100%;justify-content:center}
+  .hero-btns{flex-direction:column}
+  /* Fix 3: Sticky bar full-width button */
+  .sticky{left:16px;right:16px;transform:none;border-radius:12px;bottom:16px;padding:10px 16px;white-space:normal}
+  .sticky.show{transform:none}
+  .sticky a{width:100%;justify-content:center;min-height:52px;border-radius:8px}
+  /* Fix 5: phones-row horizontal scroll */
+  .phones-row{overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:12px}
+  .pc{flex-shrink:0;scroll-snap-align:start}
+  /* Fix 6: Hero font smaller */
+  h1.hl{font-size:clamp(3.8rem,11vw,5rem)}
+  /* Fix 7: income-strip 1 col */
+  .income-strip{grid-template-columns:1fr}
+  .is-item{display:flex;flex-direction:row;align-items:center;gap:14px;padding:16px}
+  .is-avatar{flex-shrink:0;margin-bottom:0}
+  .is-name,.is-income,.is-period,.is-platform{font-size:inherit}
+  /* Fix 8: Timer compact */
+  .t-num{font-size:36px;min-width:54px;padding:4px 10px}
+  /* Fix 10: proof-grid remove max-height */
+  .proof-card img{max-height:none;max-width:320px;margin:0 auto}
 }
 
 /* ── PROOF SCREENSHOTS ── */
@@ -505,6 +530,7 @@ footer{background:var(--black);color:#fff;padding:44px 64px;display:flex;align-i
         <video autoplay muted loop playsinline>
           <source src="hf_20260116_044249_50dad014-d2be-4274-b8a2-0eb83bd644eb.mp4" type="video/mp4"/>
         </video>
+        <img src="1.jpg" alt="AI Model Demo" class="hero-mobile-img" onerror="this.src='2.png';this.onerror=null"/>
         <div class="vid-ph">
           <div class="pi">▶</div>
           <span class="i-en">AI Girl Demo</span>
@@ -1185,6 +1211,7 @@ function setLang(l){
     if(link) a.href = link;
   });
   try{ localStorage.setItem('ams_lang',l); }catch(e){}
+  if(typeof gtag!=='undefined') gtag('event','lang_switch',{'event_category':'engagement','event_label':l});
 }
 (function(){
   var s; try{ s=localStorage.getItem('ams_lang'); }catch(e){}
@@ -1270,7 +1297,78 @@ function toggleFaq(btn){
   var wasOpen=item.classList.contains('open');
   document.querySelectorAll('.faq-item.open').forEach(function(x){ x.classList.remove('open'); });
   if(!wasOpen) item.classList.add('open');
+  if(typeof gtag!=='undefined') gtag('event','faq_opened',{'event_category':'engagement','event_label':btn.querySelector('.faq-q span,.faq-q')&&btn.textContent.trim().substring(0,40)});
 }
+
+/* ── GA4 EVENT TRACKING ── */
+(function(){
+  /* purchase_click — всі .pay-link */
+  document.querySelectorAll('.pay-link').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(typeof gtag!=='undefined') gtag('event','purchase_click',{
+        'event_category':'conversion',
+        'event_label': document.body.classList.contains('lang-ua') ? 'ua' : 'en'
+      });
+    });
+  });
+  /* bot_click — кнопки боту */
+  document.querySelectorAll('a[href*="TikTok_2026_bot"]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(typeof gtag!=='undefined') gtag('event','bot_click',{'event_category':'engagement'});
+    });
+  });
+  /* pricing_viewed */
+  var priceEl=document.querySelector('.price-sec');
+  if(priceEl && 'IntersectionObserver' in window){
+    var po=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          if(typeof gtag!=='undefined') gtag('event','pricing_viewed',{'event_category':'engagement'});
+          po.unobserve(e.target);
+        }
+      });
+    },{threshold:0.3});
+    po.observe(priceEl);
+  }
+})();
+
+/* ── SHEETS CLICK TRACKER ── */
+(function(){
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxxrovcBiZwy48XQTdxKt2lpXnsC7Zi8VmwNWjsyRSV7cmhztweVnAmPOB3BtxUpwsm/exec';
+
+  function getLang(){
+    return document.body.classList.contains('lang-ua') ? 'ua' : 'en';
+  }
+  function getDevice(){
+    return /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
+  }
+  function getUTM(param){
+    try{ return new URLSearchParams(location.search).get(param)||''; }catch(e){ return ''; }
+  }
+
+  function sendClick(label){
+    var payload = {
+      landing:    'ai-model-school',
+      offer:      getLang()==='ua' ? 'AiModelSchool_UA' : 'AiModelSchool_US',
+      acc:        getUTM('acc') || '',
+      offer_id:   getUTM('offer_id') || '',
+      utm_source: getUTM('utm_source') || document.referrer && 'referral' || 'direct',
+      utm_medium: getUTM('utm_medium') || '',
+      device:     getDevice(),
+      ref:        document.referrer || '',
+      ts:         new Date().toISOString(),
+      lang:       getLang()
+    };
+    // beacon — не блокирует переход
+    var blob = new Blob([JSON.stringify(payload)], {type:'application/json'});
+    if(navigator.sendBeacon){ navigator.sendBeacon(SCRIPT_URL, blob); }
+    else { fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify(payload),keepalive:true}).catch(function(){}); }
+  }
+
+  document.querySelectorAll('.pay-link').forEach(function(a){
+    a.addEventListener('click', function(){ sendClick('pay'); });
+  });
+})();
 </script>
 </body>
 </html>
