@@ -19,8 +19,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230d0d0d'/><text y='.9em' font-size='72' x='12'>🤖</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
-<!-- Google Analytics 4 — ЗАМІНИТИ G-XXXXXXXXXX на реальний Measurement ID з https://analytics.google.com -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<!-- GA4: add your G-XXXXXXXXXX ID here when ready -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -1393,7 +1392,7 @@ function toggleFaq(btn){
   var wasOpen=item.classList.contains('open');
   document.querySelectorAll('.faq-item.open').forEach(function(x){ x.classList.remove('open'); });
   if(!wasOpen) item.classList.add('open');
-  if(typeof gtag!=='undefined') gtag('event','faq_opened',{'event_category':'engagement','event_label':btn.querySelector('.faq-q span,.faq-q')&&btn.textContent.trim().substring(0,40)});
+  if(typeof gtag!=='undefined') gtag('event','faq_opened',{'event_category':'engagement','event_label':btn.textContent.trim().substring(0,40)});
 }
 
 /* ── GA4 EVENT TRACKING ── */
