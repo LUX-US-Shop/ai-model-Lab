@@ -510,7 +510,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
       <button id="btn-ua" onclick="setLang('ua')">UA</button>
     </div>
-    <a href="https://ailuxlab.lemonsqueezy.com/checkout/buy/7d5b4157-0771-4b12-b0cc-f6215158aa9c"
+    <a href="https://ailuxlab.lemonsqueezy.com/checkout/buy/0db66c39-5933-4f6d-8526-7209e80f6c6a"
        data-link-en="https://ailuxlab.lemonsqueezy.com/checkout/buy/0db66c39-5933-4f6d-8526-7209e80f6c6a"
        data-link-ua="https://ailuxlab.lemonsqueezy.com/checkout/buy/7d5b4157-0771-4b12-b0cc-f6215158aa9c"
        class="btn-nav pay-link" target="_blank" rel="noopener noreferrer">
@@ -551,7 +551,7 @@ html,body{max-width:100%;overflow-x:hidden}
     </div>
 
     <div class="hero-btns">
-      <a href="https://ailuxlab.lemonsqueezy.com/checkout/buy/7d5b4157-0771-4b12-b0cc-f6215158aa9c"
+      <a href="https://ailuxlab.lemonsqueezy.com/checkout/buy/0db66c39-5933-4f6d-8526-7209e80f6c6a"
          data-link-en="https://ailuxlab.lemonsqueezy.com/checkout/buy/0db66c39-5933-4f6d-8526-7209e80f6c6a"
          data-link-ua="https://ailuxlab.lemonsqueezy.com/checkout/buy/7d5b4157-0771-4b12-b0cc-f6215158aa9c"
          class="btn-main red pay-link" target="_blank" rel="noopener noreferrer">
@@ -692,7 +692,7 @@ html,body{max-width:100%;overflow-x:hidden}
     </div>
   </div>
   <div class="t-cta">
-    <a href="https://ailuxlab.lemonsqueezy.com/checkout/buy/7d5b4157-0771-4b12-b0cc-f6215158aa9c"
+    <a href="https://ailuxlab.lemonsqueezy.com/checkout/buy/0db66c39-5933-4f6d-8526-7209e80f6c6a"
        data-link-en="https://ailuxlab.lemonsqueezy.com/checkout/buy/0db66c39-5933-4f6d-8526-7209e80f6c6a"
        data-link-ua="https://ailuxlab.lemonsqueezy.com/checkout/buy/7d5b4157-0771-4b12-b0cc-f6215158aa9c"
        class="pay-link" target="_blank" rel="noopener noreferrer">
@@ -1188,7 +1188,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <span class="pf"><span class="dot">✦</span><span class="i-en">Lifetime Access</span><span class="i-ua">Доступ назавжди</span></span>
   </div>
 
-  <a href="https://ailuxlab.lemonsqueezy.com/checkout/buy/7d5b4157-0771-4b12-b0cc-f6215158aa9c"
+  <a href="https://ailuxlab.lemonsqueezy.com/checkout/buy/0db66c39-5933-4f6d-8526-7209e80f6c6a"
      data-link-en="https://ailuxlab.lemonsqueezy.com/checkout/buy/0db66c39-5933-4f6d-8526-7209e80f6c6a"
      data-link-ua="https://ailuxlab.lemonsqueezy.com/checkout/buy/7d5b4157-0771-4b12-b0cc-f6215158aa9c"
      class="btn-main red pay-link" style="font-size:16px;padding:20px 52px;display:inline-flex;margin:0 auto"
@@ -1245,7 +1245,7 @@ html,body{max-width:100%;overflow-x:hidden}
        <span class="i-ua">Знижка 50% закінчується —</span>
     <b class="i-en"> $49.99</b><b class="i-ua"> $49.99</b>
   </span>
-  <a href="https://ailuxlab.lemonsqueezy.com/checkout/buy/7d5b4157-0771-4b12-b0cc-f6215158aa9c"
+  <a href="https://ailuxlab.lemonsqueezy.com/checkout/buy/0db66c39-5933-4f6d-8526-7209e80f6c6a"
      data-link-en="https://ailuxlab.lemonsqueezy.com/checkout/buy/0db66c39-5933-4f6d-8526-7209e80f6c6a"
      data-link-ua="https://ailuxlab.lemonsqueezy.com/checkout/buy/7d5b4157-0771-4b12-b0cc-f6215158aa9c"
      class="pay-link" target="_blank" rel="noopener noreferrer">
@@ -1429,7 +1429,7 @@ function toggleFaq(btn){
 
 /* ── SHEETS CLICK TRACKER ── */
 (function(){
-  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwTfP6JjGGsZE17DT6IK8Frbn1lMW6D0lNQXo8T7f4OktHL5P4GSz8G5hM4V1rUHv0/exec';
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxTnxPi9NM2UMS2STc3cYKUYpZC90HTCL5RYWIX8rKLseaEYXH8nr1yMLroba7RYpOA/exec';
 
   function getLang(){
     return document.body.classList.contains('lang-ua') ? 'ua' : 'en';
@@ -1443,16 +1443,15 @@ function toggleFaq(btn){
 
   function sendClick(label){
     var payload = {
+      event:      'checkout_click',
       landing:    'ai-model-school',
-      offer:      getLang()==='ua' ? 'AiModelSchool_UA' : 'AiModelSchool_US',
+      offer:      getLang()==='ua' ? 'AiModelSchool_UA' : 'AiModelSchool_EN',
       acc:        getUTM('acc') || '',
-      offer_id:   getUTM('offer_id') || '',
-      utm_source: getUTM('utm_source') || document.referrer && 'referral' || 'direct',
+      utm_source: getUTM('utm_source') || (document.referrer ? 'referral' : 'direct'),
       utm_medium: getUTM('utm_medium') || '',
       device:     getDevice(),
-      ref:        document.referrer || '',
-      ts:         new Date().toISOString(),
-      lang:       getLang()
+      lang:       getLang(),
+      ts:         new Date().toISOString()
     };
     // beacon — не блокирует переход
     var blob = new Blob([JSON.stringify(payload)], {type:'application/json'});
