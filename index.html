@@ -19,12 +19,16 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230d0d0d'/><text y='.9em' font-size='72' x='12'>🤖</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
-<!-- GA4: add your G-XXXXXXXXXX ID here when ready -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX'); // ⚠️ ЗАМІНИТИ НА РЕАЛЬНИЙ ID
+/* pageview → общая GAS таблица */
+(function(){
+  var GAS='https://script.google.com/macros/s/AKfycbxTnxPi9NM2UMS2STc3cYKUYpZC90HTCL5RYWIX8rKLseaEYXH8nr1yMLroba7RYpOA/exec';
+  var p=new URLSearchParams(location.search);
+  var payload={event:'pageview',landing:'ai-model-school',page:'ai-model-school',
+    acc:p.get('acc')||'direct',utm_source:p.get('utm_source')||(document.referrer?'referral':'direct'),
+    utm_medium:p.get('utm_medium')||'',ts:new Date().toISOString()};
+  try{fetch(GAS,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});}catch(e){}
+})();
 </script>
 <style>
 :root{
