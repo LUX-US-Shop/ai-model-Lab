@@ -419,7 +419,7 @@
           </div>
           <div class="actions">
             <a class="btn primary" href="https://t.me/TikTok_2026_bot" data-bot-source="content" data-segment="starter" data-cta-id="hero_starter"><span class="en">Start free in Telegram</span><span class="ua">Почати безкоштовно</span></a>
-            <a class="btn secondary" href="https://ailuxlab.lemonsqueezy.com/checkout/buy/0db66c39-5933-4f6d-8526-7209e80f6c6a" data-checkout="en" data-source="course" data-segment="full_lab" data-cta-id="hero_checkout"><span class="en">Get Full Lab - $49.99</span><span class="ua">Отримати Full Lab - $49.99</span></a>
+            <a class="btn secondary" href="https://ailuxlab.lemonsqueezy.com/checkout/buy/0db66c39-5933-4f6d-8526-7209e80f6c6a" data-checkout="auto" data-source="course" data-segment="full_lab" data-cta-id="hero_checkout"><span class="en">Get Full Lab - $49.99</span><span class="ua">Отримати Full Lab - $49.99</span></a>
           </div>
           <p class="micro"><span class="en">Creator education. Some examples may reference 18+ traffic paths where allowed. Results depend on traffic, offer fit, execution, and platform compliance.</span><span class="ua">Освітній продукт для креаторів. Окремі приклади можуть стосуватися 18+ напрямків там, де це дозволено правилами платформ.</span></p>
         </div>
@@ -598,7 +598,7 @@
 
   <div class="mobile-sticky" aria-label="Mobile actions">
     <a class="btn primary" href="https://t.me/TikTok_2026_bot" data-bot-source="content" data-segment="sticky" data-cta-id="sticky_starter">Starter kit</a>
-    <a class="btn secondary" href="https://ailuxlab.lemonsqueezy.com/checkout/buy/0db66c39-5933-4f6d-8526-7209e80f6c6a" data-checkout="en" data-source="course" data-segment="sticky" data-cta-id="sticky_checkout">Full Lab</a>
+    <a class="btn secondary" href="https://ailuxlab.lemonsqueezy.com/checkout/buy/0db66c39-5933-4f6d-8526-7209e80f6c6a" data-checkout="auto" data-source="course" data-segment="sticky" data-cta-id="sticky_checkout">Full Lab</a>
   </div>
 
   <script>
@@ -666,15 +666,20 @@
         } catch (error) {}
       }
 
+      function currentLang() {
+        return document.body.getAttribute("data-lang") === "ua" ? "ua" : "en";
+      }
+
       function buildBotLink(source, clickId) {
-        const payload = `${source}_${clickId}`.replace(/[^a-zA-Z0-9_]/g, "_").slice(0, 64);
+        const payload = `${currentLang()}_${source}_${clickId}`.replace(/[^a-zA-Z0-9_]/g, "_").slice(0, 64);
         const url = new URL(BOT_URL);
         url.searchParams.set("start", payload);
         return url.toString();
       }
 
       function buildCheckoutLink(kind, source, clickId) {
-        const url = new URL(CHECKOUTS[kind] || CHECKOUTS.en);
+        const checkoutKind = kind === "auto" ? currentLang() : kind;
+        const url = new URL(CHECKOUTS[checkoutKind] || CHECKOUTS.en);
         url.searchParams.set("checkout[custom][cid]", cid);
         url.searchParams.set("checkout[custom][click_id]", clickId);
         url.searchParams.set("checkout[custom][source]", source || "course");
