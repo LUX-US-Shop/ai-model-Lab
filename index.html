@@ -332,8 +332,44 @@
       height: 92px;
       border-radius: 8px;
       border: 1px solid var(--line);
-      background: linear-gradient(135deg, rgba(244,201,93,.2), rgba(97,210,198,.14)), url("2.png") center / cover;
+      background: linear-gradient(135deg, rgba(244,201,93,.2), rgba(97,210,198,.14)), url("visuals/proof-persona.jpg") center / cover;
       overflow: hidden;
+    }
+
+    .visual-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin: 8px 0 22px;
+    }
+
+    .visual-proof-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(18, 16, 16, .86);
+    }
+
+    .visual-proof-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: #111;
+    }
+
+    .visual-proof-card div {
+      padding: 13px 14px 15px;
+    }
+
+    .visual-proof-card h3 {
+      font-size: 16px;
+      margin: 0 0 6px;
+    }
+
+    .visual-proof-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .prompt-lines, .map-lines {
@@ -431,7 +467,7 @@
       .hero { min-height: auto; padding-top: 34px; }
       .hero-grid, .split, .price { grid-template-columns: 1fr; }
       .hero-card { max-width: 420px; }
-      .grid, .steps, .gallery, .artifact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid, .steps, .gallery, .artifact-grid, .visual-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .module-list, .faq { grid-template-columns: 1fr; }
       .price .actions { width: 100%; }
       .price .btn { flex: 1; }
@@ -448,8 +484,9 @@
       .chips { gap: 8px; }
       .chip { font-size: 12px; padding: 8px 10px; }
       section { padding: 48px 0; }
-      .grid, .steps, .gallery, .artifact-grid { grid-template-columns: 1fr; }
+      .grid, .steps, .gallery, .artifact-grid, .visual-proof-grid { grid-template-columns: 1fr; }
       .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .visual-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .artifact-card { min-height: auto; }
       .hero-card video { aspect-ratio: 4 / 5; }
       .footer { padding-bottom: 112px; }
@@ -578,6 +615,36 @@
           <p><span class="en">The course is framed around visible working pieces: a persona card, prompt stack, content map, and a clean route from traffic to Telegram or checkout.</span><span class="ua">Курс побудований навколо видимих робочих блоків: persona card, prompt stack, content map і чистий шлях від трафіку до Telegram або checkout.</span></p>
         </div>
         <p class="proof-note"><span class="en">All model visuals on this page are synthetic AI-style examples used for education and funnel planning. They are not income proof, client screenshots, or guaranteed outcomes.</span><span class="ua">Усі model visuals на цій сторінці - синтетичні AI-style приклади для навчання і планування воронки. Це не proof доходу, не клієнтські скріншоти і не гарантія результатів.</span></p>
+        <div class="visual-proof-grid" aria-label="Synthetic visual proof examples">
+          <article class="visual-proof-card">
+            <img src="visuals/proof-persona.jpg" alt="Synthetic AI model persona mirror example" loading="lazy">
+            <div>
+              <h3>Persona lock</h3>
+              <p>Define a repeatable face, mood, setting, and styling rules before producing more content.</p>
+            </div>
+          </article>
+          <article class="visual-proof-card">
+            <img src="visuals/proof-content.jpg" alt="Synthetic luxury lifestyle content scene example" loading="lazy">
+            <div>
+              <h3>Content scene</h3>
+              <p>Package the model into scroll-friendly contexts instead of posting isolated portraits.</p>
+            </div>
+          </article>
+          <article class="visual-proof-card">
+            <img src="visuals/proof-traffic.jpg" alt="Synthetic traffic hook visual example" loading="lazy">
+            <div>
+              <h3>Traffic hook</h3>
+              <p>Create pin-ready curiosity angles that can lead into Telegram, checkout, or a nurture path.</p>
+            </div>
+          </article>
+          <article class="visual-proof-card">
+            <img src="visuals/proof-brand.jpg" alt="Synthetic AI model brand mood example" loading="lazy">
+            <div>
+              <h3>Brand mood</h3>
+              <p>Keep the visual world consistent enough that the offer feels like a system, not a random gallery.</p>
+            </div>
+          </article>
+        </div>
         <div class="artifact-grid" aria-label="Course proof artifacts">
           <article class="artifact-card">
             <div class="mini-shot" aria-hidden="true"></div>
