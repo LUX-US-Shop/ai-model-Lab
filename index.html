@@ -792,6 +792,7 @@
       };
       const urlParams = new URLSearchParams(window.location.search);
       const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+      const attributionKeys = ["utm_account", "utm_board", "utm_pin", "landing_variant"];
 
       function randomId(prefix) {
         return prefix + "_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 9);
@@ -829,7 +830,7 @@
           lang: document.body.getAttribute("data-lang") || "en",
           device: deviceType()
         };
-        utmKeys.forEach((key) => payload[key] = urlParams.get(key) || "");
+        utmKeys.concat(attributionKeys).forEach((key) => payload[key] = urlParams.get(key) || "");
         return Object.assign(payload, extra || {});
       }
 
@@ -866,9 +867,12 @@
         url.searchParams.set("checkout[custom][source]", source || "course");
         url.searchParams.set("checkout[custom][landing]", "ai-model-lab");
         url.searchParams.set("checkout[custom][acc]", urlParams.get("acc") || "");
-        utmKeys.forEach((key) => {
+        utmKeys.concat(attributionKeys).forEach((key) => {
           const value = urlParams.get(key);
-          if (value) url.searchParams.set(key, value);
+          if (value) {
+            url.searchParams.set(key, value);
+            url.searchParams.set(`checkout[custom][${key}]`, value);
+          }
         });
         return url.toString();
       }
