@@ -237,7 +237,7 @@
       margin-bottom: 14px;
     }
 
-    .section-head p, .card p, .step p, .faq p, .price p { color: var(--muted); }
+    .section-head p, .card p, .step p, .faq p, .price p, .proof-note { color: var(--muted); }
 
     .grid {
       display: grid;
@@ -293,6 +293,80 @@
     }
 
     .module-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .proof-note {
+      max-width: 780px;
+      font-size: 13px;
+      margin: -8px 0 18px;
+    }
+
+    .artifact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .artifact-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(18, 16, 16, .86);
+      padding: 16px;
+      min-height: 220px;
+      display: grid;
+      align-content: start;
+      gap: 12px;
+    }
+
+    .artifact-card h3 {
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .artifact-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .mini-shot {
+      height: 92px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(244,201,93,.2), rgba(97,210,198,.14)), url("2.png") center / cover;
+      overflow: hidden;
+    }
+
+    .prompt-lines, .map-lines {
+      display: grid;
+      gap: 8px;
+      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+      color: #f0e6d8;
+    }
+
+    .prompt-lines span, .map-lines span {
+      display: block;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px;
+      background: rgba(255,255,255,.06);
+      padding: 8px;
+    }
+
+    .delivery-steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+      color: #eadfd0;
+      font-size: 13px;
+    }
+
+    .delivery-steps li {
+      border-left: 2px solid var(--gold);
+      padding-left: 10px;
+    }
+
     .gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
     .gallery video, .gallery img {
       width: 100%;
@@ -357,7 +431,7 @@
       .hero { min-height: auto; padding-top: 34px; }
       .hero-grid, .split, .price { grid-template-columns: 1fr; }
       .hero-card { max-width: 420px; }
-      .grid, .steps, .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid, .steps, .gallery, .artifact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .module-list, .faq { grid-template-columns: 1fr; }
       .price .actions { width: 100%; }
       .price .btn { flex: 1; }
@@ -374,8 +448,9 @@
       .chips { gap: 8px; }
       .chip { font-size: 12px; padding: 8px 10px; }
       section { padding: 48px 0; }
-      .grid, .steps, .gallery { grid-template-columns: 1fr; }
+      .grid, .steps, .gallery, .artifact-grid { grid-template-columns: 1fr; }
       .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .artifact-card { min-height: auto; }
       .hero-card video { aspect-ratio: 4 / 5; }
       .footer { padding-bottom: 112px; }
     }
@@ -425,7 +500,7 @@
         </div>
         <aside class="hero-card" aria-label="AI model visual example">
           <video src="hf_20260116_044249_50dad014-d2be-4274-b8a2-0eb83bd644eb.mp4" poster="og-image.jpg" autoplay muted loop playsinline preload="metadata"></video>
-          <div class="hero-card-caption"><span class="en">Visual example: the lab teaches repeatable identity and content workflow, not one lucky generation.</span><span class="ua">Приклад візуалу: Lab вчить повторюваній айдентиці та процесу, а не одному випадковому результату.</span></div>
+          <div class="hero-card-caption"><span class="en">Synthetic visual example: the Lab teaches repeatable identity, content packaging, and traffic workflow, not one lucky generation.</span><span class="ua">Синтетичний приклад візуалу: Lab вчить повторюваній айдентиці, пакуванню контенту та traffic workflow, а не одному випадковому результату.</span></div>
         </aside>
       </div>
     </section>
@@ -499,8 +574,44 @@
     <section id="proof">
       <div class="wrap">
         <div class="section-head">
-          <h2><span class="en">What you learn to create.</span><span class="ua">Що ти навчишся створювати.</span></h2>
-          <p><span class="en">Use visuals as assets inside a system: identity, content, traffic, and a clear next step.</span><span class="ua">Візуали мають бути активами всередині системи: айдентика, контент, трафік і чіткий наступний крок.</span></p>
+          <h2><span class="en">Proof artifacts, not vague theory.</span><span class="ua">Практичні артефакти, а не абстрактна теорія.</span></h2>
+          <p><span class="en">The course is framed around visible working pieces: a persona card, prompt stack, content map, and a clean route from traffic to Telegram or checkout.</span><span class="ua">Курс побудований навколо видимих робочих блоків: persona card, prompt stack, content map і чистий шлях від трафіку до Telegram або checkout.</span></p>
+        </div>
+        <p class="proof-note"><span class="en">All model visuals on this page are synthetic AI-style examples used for education and funnel planning. They are not income proof, client screenshots, or guaranteed outcomes.</span><span class="ua">Усі model visuals на цій сторінці - синтетичні AI-style приклади для навчання і планування воронки. Це не proof доходу, не клієнтські скріншоти і не гарантія результатів.</span></p>
+        <div class="artifact-grid" aria-label="Course proof artifacts">
+          <article class="artifact-card">
+            <div class="mini-shot" aria-hidden="true"></div>
+            <h3>Consistency set</h3>
+            <p>Build a repeatable look: base identity, selection rules, correction prompts, and quality filters.</p>
+          </article>
+          <article class="artifact-card">
+            <div class="prompt-lines" aria-hidden="true">
+              <span>persona: niche + style + limits</span>
+              <span>scene: angle + lighting + platform</span>
+              <span>fix: face lock + negative prompt</span>
+            </div>
+            <h3>Prompt stack</h3>
+            <p>Not random prompts. A reusable stack for creation, variation, cleanup, and content packaging.</p>
+          </article>
+          <article class="artifact-card">
+            <div class="map-lines" aria-hidden="true">
+              <span>Pinterest board -> pin angle</span>
+              <span>Pin click -> safe landing route</span>
+              <span>Telegram -> segment -> offer</span>
+            </div>
+            <h3>Traffic map</h3>
+            <p>Understand where each visitor goes next and what message they should see after the click.</p>
+          </article>
+          <article class="artifact-card">
+            <ul class="delivery-steps">
+              <li>Lemon checkout</li>
+              <li>Receipt and access path</li>
+              <li>Telegram support route</li>
+              <li>Updates and implementation notes</li>
+            </ul>
+            <h3>Access path</h3>
+            <p>Clear delivery expectations before payment, with Telegram support if automatic access is delayed.</p>
+          </article>
         </div>
         <div class="gallery">
           <video src="4.mp4" poster="1.jpg" muted loop playsinline preload="metadata"></video>
@@ -515,7 +626,7 @@
       <div class="wrap">
         <div class="section-head">
           <h2><span class="en">What the full Lab covers.</span><span class="ua">Що входить у Full Lab.</span></h2>
-          <p><span class="en">AI Model School is the internal curriculum inside AI Model Lab: a practical build path from character to traffic-ready funnel.</span><span class="ua">AI Model School - це внутрішня програма всередині AI Model Lab: практичний шлях від персонажа до traffic-ready воронки.</span></p>
+          <p><span class="en">The full curriculum is a practical build path from character idea to traffic-ready funnel.</span><span class="ua">Повна програма - це практичний шлях від ідеї персонажа до traffic-ready воронки.</span></p>
         </div>
         <ul class="module-list">
           <li><strong>Model identity:</strong> positioning, angle, persona card, boundaries.</li>
@@ -533,14 +644,15 @@
     <section id="trust">
       <div class="wrap split">
         <div class="section-head">
-          <h2><span class="en">Straight offer. No fake screenshots.</span><span class="ua">Пряма пропозиція. Без фейкових скрінів.</span></h2>
-          <p><span class="en">If you want hype, this will feel too plain. If you want a practical map, you are in the right place.</span><span class="ua">Якщо потрібен хайп - це може здатися занадто спокійним. Якщо потрібна практична карта - ти в правильному місці.</span></p>
+          <h2><span class="en">Straight offer. Clear boundaries.</span><span class="ua">Пряма пропозиція. Чіткі межі.</span></h2>
+          <p><span class="en">This is creator education for building a repeatable AI model content workflow. It is not sold as guaranteed profit, platform approval, or a done-for-you adult business.</span><span class="ua">Це creator education для побудови повторюваного AI model content workflow. Це не гарантія прибутку, апруву платформ або done-for-you adult business.</span></p>
         </div>
         <ul class="trust-list">
           <li>No promise of earnings, viral growth, or platform approval.</li>
           <li>Results depend on traffic quality, offer fit, volume, testing, and execution.</li>
           <li>Affiliate links or partner offers may be used and should be disclosed.</li>
           <li>You are responsible for platform rules, age restrictions, and content compliance.</li>
+          <li>All example model visuals should be treated as synthetic AI-style educational examples.</li>
           <li>Access and support are handled through Telegram and purchase email fallback.</li>
         </ul>
       </div>
@@ -553,7 +665,7 @@
             <div class="eyebrow"><span class="dot"></span><span>Full Lab access</span></div>
             <h2><span class="en">Get the complete AI Model Lab.</span><span class="ua">Отримай повний AI Model Lab.</span></h2>
             <p><span class="en">Lifetime access to the current curriculum, EN + UA material, updates, and implementation support path.</span><span class="ua">Lifetime доступ до поточної програми, EN + UA матеріалів, оновлень і маршруту підтримки.</span></p>
-            <p class="fine">Educational product. No guaranteed traffic, income, approvals, or platform safety outcomes.</p>
+            <p class="fine">Educational product. No guaranteed traffic, income, approvals, or platform safety outcomes. After purchase, use the Lemon receipt and Telegram support route if automatic access is delayed.</p>
           </div>
           <div>
             <div class="price-tag">$49.99</div>
@@ -579,6 +691,8 @@
           <article class="faq-item"><h3>Is this adult content?</h3><p>The workflow can be used for non-adult or adult-adjacent AI model traffic. Any 18+ use requires proper age restrictions, platform compliance, and legal responsibility.</p></article>
           <article class="faq-item"><h3>Can I use this with Pinterest traffic?</h3><p>Yes. The structure is designed around cold visual traffic: clear image angle, simple curiosity, safe landing copy, and a direct next step.</p></article>
           <article class="faq-item"><h3>What should I do first?</h3><p>Start with the free Telegram kit. It gives the bot your segment and gives you the first practical pieces before buying the full Lab.</p></article>
+          <article class="faq-item"><h3>Are the model visuals real people?</h3><p>No. The visuals are synthetic AI-style examples for education, brand planning, and funnel design. Do not present generated people as real people.</p></article>
+          <article class="faq-item"><h3>How do I get access after purchase?</h3><p>Lemon sends the receipt. The connected Telegram route handles access and support; if delivery is delayed, use the bot/support path with your purchase email or order ID.</p></article>
         </div>
       </div>
     </section>
